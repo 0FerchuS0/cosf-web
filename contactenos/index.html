@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contáctenos | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <meta name="description" content="Contactá a Centro Óptico Santa Fe por WhatsApp, Instagram o visitanos en Blas Garay 1149, Barrio San Isidro, Ciudad del Este, Paraguay." />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF9F70N90P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CF9F70N90P');
+    gtag('event', 'page_view_contactenos', { event_category: 'landing_ads' });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
+    a { text-decoration: none; color: inherit; }
+
+    .header { background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,0.08); padding: 0 1.25rem; }
+    .header-inner { max-width: 1100px; margin: 0 auto; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 44px; width: auto; }
+    .btn-wa-sm { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    .btn-wa-sm:hover { background: #1da851; }
+
+    .hero { background: linear-gradient(135deg, #143d7a, #1B4F9C); color: #fff; padding: 3rem 1.25rem; text-align: center; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.25); }
+    .hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 0.6rem; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 500px; margin: 0 auto; line-height: 1.6; }
+
+    .section { max-width: 960px; margin: 0 auto; padding: 3rem 1.25rem; }
+
+    /* Canales principales */
+    .channels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2.5rem; }
+
+    .channel-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .channel-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+
+    .ch-icon {
+      width: 68px; height: 68px;
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.1rem;
+      color: #fff;
+    }
+    .ch-wa { background: #25D366; }
+    .ch-ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .ch-loc { background: #1B4F9C; }
+
+    .channel-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 0.4rem; }
+    .channel-card .handle { font-size: 1rem; font-weight: 700; color: #1B4F9C; margin-bottom: 0.5rem; }
+    .channel-card p { font-size: 0.83rem; color: #64748b; line-height: 1.6; margin-bottom: 1.25rem; }
+
+    .btn-channel {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.5rem; width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 50px;
+      font-weight: 700; font-size: 0.9rem;
+      transition: all 0.2s;
+      color: #fff;
+    }
+    .btn-channel.wa { background: #25D366; }
+    .btn-channel.wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.35); }
+    .btn-channel.ig { background: linear-gradient(135deg, #e6683c, #cc2366); }
+    .btn-channel.ig:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(204,35,102,0.35); }
+    .btn-channel.maps { background: #1B4F9C; }
+    .btn-channel.maps:hover { background: #143d7a; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(27,79,156,0.35); }
+
+    /* Horarios */
+    .info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .info-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+    }
+    .info-card h3 { font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .info-card h3 i { color: #1B4F9C; }
+
+    .schedule-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.85rem;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-row .day { font-weight: 600; color: #1e293b; }
+    .schedule-row .time { color: #475569; }
+    .schedule-row .closed { color: #ef4444; font-weight: 600; }
+    .badge-open { background: #dcfce7; color: #166534; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 50px; }
+    .badge-closed { background: #fee2e2; color: #991b1b; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 50px; }
+
+    .wa-note {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-size: 0.85rem;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .wa-note i { color: #25D366; font-size: 1.1rem; flex-shrink: 0; }
+
+    /* CTA final */
+    .cta-box {
+      background: linear-gradient(135deg, #0f172a, #143d7a);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+    .cta-box h2 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-box p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
+    .btn-wa-lg:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+
+    .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #1B4F9C; font-weight: 600; justify-content: center; }
+    .back-link:hover { text-decoration: underline; }
+
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; z-index: 999; }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 700px) {
+      .channels { grid-template-columns: 1fr; }
+      .info-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/"><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" /></a>
+      <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+         class="btn-wa-sm" target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'contactenos_header'})">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">Estamos para ayudarte</div>
+    <h1>Contáctenos</h1>
+    <p>Elegí el canal que más te resulte cómodo. Te respondemos rápido.</p>
+  </section>
+
+  <div class="section">
+
+    <!-- CANALES DE CONTACTO -->
+    <div class="channels">
+
+      <div class="channel-card">
+        <div class="ch-icon ch-wa"><i class="fab fa-whatsapp"></i></div>
+        <h3>WhatsApp</h3>
+        <div class="handle">+595 973 851 449</div>
+        <p>Consultás precios, recetas, disponibilidad o cualquier duda. Respondemos a la brevedad.</p>
+        <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+           class="btn-channel wa" target="_blank" rel="noopener"
+           onclick="gtag('event','click_whatsapp',{event_category:'contactenos_canal'})">
+          <i class="fab fa-whatsapp"></i> Escribir ahora
+        </a>
+      </div>
+
+      <div class="channel-card">
+        <div class="ch-icon ch-ig"><i class="fab fa-instagram"></i></div>
+        <h3>Instagram</h3>
+        <div class="handle">@cosf_cde</div>
+        <p>Seguinos para ver novedades, armazones nuevos y consejos de salud visual.</p>
+        <a href="https://www.instagram.com/cosf_cde"
+           class="btn-channel ig" target="_blank" rel="noopener"
+           onclick="gtag('event','click_instagram',{event_category:'contactenos_canal'})">
+          <i class="fab fa-instagram"></i> Ver perfil
+        </a>
+      </div>
+
+      <div class="channel-card">
+        <div class="ch-icon ch-loc"><i class="fas fa-map-marker-alt"></i></div>
+        <h3>Dirección</h3>
+        <div class="handle" style="font-size:0.85rem; line-height:1.4">Blas Garay 1149 c/ Avda. San José<br>Barrio San Isidro, CDE</div>
+        <p>Vení a vernos en persona. Te atendemos con o sin turno en horario comercial.</p>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Blas+Garay+1149+San+Jos%C3%A9+Ciudad+del+Este+Paraguay"
+           class="btn-channel maps" target="_blank" rel="noopener"
+           onclick="gtag('event','click_maps',{event_category:'contactenos_canal'})">
+          <i class="fas fa-route"></i> Cómo llegar
+        </a>
+      </div>
+
+    </div>
+
+    <!-- HORARIOS E INFO -->
+    <div class="info-row">
+
+      <div class="info-card">
+        <h3><i class="fas fa-clock"></i> Horario de atención</h3>
+        <div class="schedule-row">
+          <span class="day">Lunes</span>
+          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="badge-open">Abierto</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Martes</span>
+          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="badge-open">Abierto</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Miércoles</span>
+          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="badge-open">Abierto</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Jueves</span>
+          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="badge-open">Abierto</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Viernes</span>
+          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="badge-open">Abierto</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Sábado</span>
+          <span class="closed">Cerrado</span>
+          <span class="badge-closed">Cerrado</span>
+        </div>
+        <div class="schedule-row">
+          <span class="day">Domingo</span>
+          <span class="closed">Cerrado</span>
+          <span class="badge-closed">Cerrado</span>
+        </div>
+        <div class="wa-note">
+          <i class="fab fa-whatsapp"></i>
+          <span>Fuera del horario podés escribirnos por WhatsApp y te respondemos al día siguiente.</span>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3><i class="fas fa-circle-question"></i> ¿Para qué podés contactarnos?</h3>
+        <div class="schedule-row"><span class="day"><i class="fas fa-glasses" style="color:#1B4F9C;margin-right:6px"></i>Consultar sobre lentes</span></div>
+        <div class="schedule-row"><span class="day"><i class="fas fa-prescription" style="color:#C0392B;margin-right:6px"></i>Enviar tu receta</span></div>
+        <div class="schedule-row"><span class="day"><i class="fas fa-circle-dot" style="color:#1B4F9C;margin-right:6px"></i>Lentes de contacto</span></div>
+        <div class="schedule-row"><span class="day"><i class="fas fa-tag" style="color:#C0392B;margin-right:6px"></i>Consultar precios</span></div>
+        <div class="schedule-row"><span class="day"><i class="fas fa-screwdriver-wrench" style="color:#1B4F9C;margin-right:6px"></i>Reparar armazones</span></div>
+        <div class="schedule-row"><span class="day"><i class="fas fa-child" style="color:#C0392B;margin-right:6px"></i>Lentes para niños</span></div>
+        <div class="schedule-row"><span class="day"><i class="fas fa-map-marker-alt" style="color:#1B4F9C;margin-right:6px"></i>Cómo llegar</span></div>
+        <div class="wa-note">
+          <i class="fas fa-star"></i>
+          <span>No necesitás turno para visitarnos. Llegá en nuestro horario de atención.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="cta-box">
+      <h2>¿Listo para mejorar tu visión?</h2>
+      <p>Escribinos ahora y en minutos te respondemos. Sin vueltas, sin esperas.</p>
+      <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+         class="btn-wa-lg" target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'contactenos_cta'})">
+        <i class="fab fa-whatsapp"></i> Iniciar consulta por WhatsApp
+      </a>
+    </div>
+
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Volver al sitio principal</a>
+  </div>
+
+  <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <meta name="description" content="Galería de fotos de Centro Óptico Santa Fe. Conocé nuestro local, armazones y lentes en Ciudad del Este, Paraguay." />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF9F70N90P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CF9F70N90P');
+    gtag('event', 'page_view_galeria', { event_category: 'landing_ads' });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
+    a { text-decoration: none; color: inherit; }
+
+    .header { background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,0.08); padding: 0 1.25rem; }
+    .header-inner { max-width: 1100px; margin: 0 auto; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 44px; width: auto; }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    .btn-wa:hover { background: #1da851; }
+
+    .hero { background: linear-gradient(135deg, #143d7a, #1B4F9C); color: #fff; padding: 3rem 1.25rem; text-align: center; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.25); }
+    .hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 0.6rem; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 540px; margin: 0 auto; line-height: 1.6; }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+
+    .tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .tab {
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid #e2e8f0;
+      background: #fff;
+      color: #475569;
+      transition: all 0.2s;
+    }
+    .tab.active, .tab:hover {
+      background: #1B4F9C;
+      color: #fff;
+      border-color: #1B4F9C;
+    }
+
+    .notice {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: #1e40af;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .notice i { font-size: 1.2rem; flex-shrink: 0; }
+
+    /* GRID DE FOTOS */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .photo-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #e2e8f0;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .photo-item:hover { transform: scale(1.02); }
+    .photo-item.tall { aspect-ratio: 1 / 1.5; }
+    .photo-item.wide { aspect-ratio: 2 / 1; grid-column: span 2; }
+
+    /* Placeholders mientras no hay fotos reales */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, #e8f0fb, #dbeafe);
+      color: #1B4F9C;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+    }
+    .photo-placeholder i { font-size: 2.2rem; opacity: 0.5; }
+
+    /* Si hay imagen real */
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(27,79,156,0.0);
+      display: flex;
+      align-items: flex-end;
+      padding: 0.75rem;
+      transition: background 0.2s;
+    }
+    .photo-item:hover .photo-overlay { background: rgba(27,79,156,0.35); }
+    .photo-label {
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.2s;
+      background: rgba(0,0,0,0.4);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+    }
+    .photo-item:hover .photo-label { opacity: 1; }
+
+    /* Instrucciones para agregar fotos */
+    .upload-guide {
+      background: #fff;
+      border: 2px dashed #bfdbfe;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .upload-guide i { font-size: 2.5rem; color: #1B4F9C; opacity: 0.4; margin-bottom: 0.75rem; }
+    .upload-guide h3 { font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; }
+    .upload-guide p { font-size: 0.85rem; color: #64748b; line-height: 1.6; max-width: 480px; margin: 0 auto; }
+
+    /* Instagram CTA */
+    .instagram-cta {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+    .instagram-cta i { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .instagram-cta h2 { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .instagram-cta p { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .btn-ig { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: #c13584; padding: 0.8rem 1.75rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; }
+    .btn-ig:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+    .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #1B4F9C; font-weight: 600; justify-content: center; }
+    .back-link:hover { text-decoration: underline; }
+
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; z-index: 999; }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 680px) {
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-item.wide { grid-column: span 2; }
+    }
+    @media (max-width: 420px) {
+      .photo-grid { grid-template-columns: 1fr; }
+      .photo-item.wide { grid-column: span 1; aspect-ratio: 1/1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/"><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" /></a>
+      <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+         class="btn-wa" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">Nuestro espacio</div>
+    <h1>Galería de fotos</h1>
+    <p>Conocé nuestro local, armazones y el trabajo que hacemos cada día en Centro Óptico Santa Fe.</p>
+  </section>
+
+  <div class="section">
+
+    <div class="notice">
+      <i class="fas fa-camera"></i>
+      <span>Próximamente vas a ver fotos reales del local y los productos. Por ahora, seguinos en Instagram <strong>@cosf_cde</strong> para ver las novedades.</span>
+    </div>
+
+    <!-- GRILLA DE FOTOS
+         Para agregar fotos reales, reemplazá cada <div class="photo-placeholder"> por:
+         <img src="/assets/galeria/nombre-foto.jpg" alt="descripción" />
+         Y copiá las fotos a la carpeta C:\COSF_Web\assets\galeria\
+    -->
+    <div class="photo-grid">
+
+      <div class="photo-item wide">
+        <div class="photo-placeholder"><i class="fas fa-store"></i>Frente del local</div>
+        <div class="photo-overlay"><span class="photo-label">Nuestro local</span></div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder"><i class="fas fa-glasses"></i>Armazones</div>
+        <div class="photo-overlay"><span class="photo-label">Armazones</span></div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder"><i class="fas fa-eye"></i>Atención visual</div>
+        <div class="photo-overlay"><span class="photo-label">Atención visual</span></div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder"><i class="fas fa-circle-dot"></i>Lentes de contacto</div>
+        <div class="photo-overlay"><span class="photo-label">Lentes de contacto</span></div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder"><i class="fas fa-wand-magic-sparkles"></i>Asesoramiento</div>
+        <div class="photo-overlay"><span class="photo-label">Asesoramiento</span></div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder"><i class="fas fa-screwdriver-wrench"></i>Taller óptico</div>
+        <div class="photo-overlay"><span class="photo-label">Taller óptico</span></div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder"><i class="fas fa-child"></i>Lentes infantiles</div>
+        <div class="photo-overlay"><span class="photo-label">Lentes para niños</span></div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder"><i class="fas fa-sun"></i>Lentes de sol</div>
+        <div class="photo-overlay"><span class="photo-label">Lentes de sol</span></div>
+      </div>
+
+      <div class="photo-item">
+        <div class="photo-placeholder"><i class="fas fa-handshake"></i>Equipo</div>
+        <div class="photo-overlay"><span class="photo-label">Nuestro equipo</span></div>
+      </div>
+
+    </div>
+
+    <div class="upload-guide">
+      <i class="fas fa-images"></i>
+      <h3>¿Querés actualizar las fotos?</h3>
+      <p>Guardá tus fotos en <code>C:\COSF_Web\assets\galeria\</code> y avisame para actualizarlas en la página automáticamente.</p>
+    </div>
+
+    <div class="instagram-cta">
+      <i class="fab fa-instagram"></i>
+      <h2>Seguinos en Instagram</h2>
+      <p>Publicamos novedades, armazones nuevos y tips de salud visual todos los días en <strong>@cosf_cde</strong></p>
+      <a href="https://www.instagram.com/cosf_cde" target="_blank" rel="noopener" class="btn-ig"
+         onclick="gtag('event','click_instagram',{event_category:'galeria'})">
+        <i class="fab fa-instagram"></i> Ir a @cosf_cde
+      </a>
+    </div>
+
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Volver al sitio principal</a>
+  </div>
+
+  <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>

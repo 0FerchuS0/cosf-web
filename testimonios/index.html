@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonios | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <meta name="description" content="Lo que dicen nuestros clientes sobre Centro Óptico Santa Fe. Opiniones reales de clientes satisfechos en Ciudad del Este, Paraguay." />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF9F70N90P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CF9F70N90P');
+    gtag('event', 'page_view_testimonios', { event_category: 'landing_ads' });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
+    a { text-decoration: none; color: inherit; }
+
+    .header { background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,0.08); padding: 0 1.25rem; }
+    .header-inner { max-width: 1100px; margin: 0 auto; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 44px; width: auto; }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    .btn-wa:hover { background: #1da851; }
+
+    .hero { background: linear-gradient(135deg, #143d7a, #1B4F9C); color: #fff; padding: 3rem 1.25rem; text-align: center; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.25); }
+    .hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 0.6rem; }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 540px; margin: 0 auto; line-height: 1.6; }
+
+    .stars { color: #f59e0b; font-size: 1rem; margin-bottom: 0.5rem; }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
+
+    .rating-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .rating-big { text-align: center; }
+    .rating-big .number { font-family: 'Poppins', sans-serif; font-size: 3.5rem; font-weight: 800; color: #1B4F9C; line-height: 1; }
+    .rating-big .label { font-size: 0.82rem; color: #64748b; margin-top: 0.3rem; }
+    .rating-big .stars { font-size: 1.3rem; margin: 0.4rem 0; }
+    .divider-v { width: 1px; height: 60px; background: #e2e8f0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+
+    .card-top { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem; }
+    .avatar {
+      width: 46px; height: 46px; min-width: 46px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; color: #fff;
+    }
+    .av-blue { background: linear-gradient(135deg, #1B4F9C, #2563a8); }
+    .av-red { background: linear-gradient(135deg, #C0392B, #e74c3c); }
+    .av-green { background: linear-gradient(135deg, #059669, #10b981); }
+    .av-purple { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+    .av-orange { background: linear-gradient(135deg, #d97706, #f59e0b); }
+    .av-teal { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+
+    .card-info strong { font-size: 0.95rem; font-weight: 700; color: #0f172a; display: block; }
+    .card-info span { font-size: 0.78rem; color: #64748b; }
+
+    .card-text { font-size: 0.88rem; color: #475569; line-height: 1.7; font-style: italic; }
+    .card-text::before { content: '"'; font-size: 2rem; color: #1B4F9C; line-height: 0; vertical-align: -0.6rem; margin-right: 2px; }
+    .card-text::after { content: '"'; font-size: 2rem; color: #1B4F9C; line-height: 0; vertical-align: -0.6rem; margin-left: 2px; }
+
+    .card-service {
+      display: inline-block;
+      background: #e8f0fb;
+      color: #1B4F9C;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      margin-top: 1rem;
+    }
+
+    .notice {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: #92400e;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .notice i { color: #d97706; margin-right: 0.4rem; }
+
+    .cta-box {
+      background: linear-gradient(135deg, #143d7a, #1B4F9C);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      color: #fff;
+    }
+    .cta-box h2 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-box p { color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
+    .btn-wa-lg:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+
+    .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #1B4F9C; font-weight: 600; margin-top: 1.5rem; justify-content: center; }
+    .back-link:hover { text-decoration: underline; }
+
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; z-index: 999; }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .grid { grid-template-columns: 1fr; } .divider-v { display: none; } }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/"><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" /></a>
+      <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+         class="btn-wa" target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'testimonios_header'})">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">Opiniones de clientes</div>
+    <h1>Lo que dicen nuestros clientes</h1>
+    <p>La confianza de cada cliente es nuestra mayor satisfacción. Estas son algunas experiencias reales.</p>
+  </section>
+
+  <div class="section">
+
+    <div class="rating-bar">
+      <div class="rating-big">
+        <div class="number">5.0</div>
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="label">Calificación promedio</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="rating-big">
+        <div class="number" style="font-size:2.5rem">😊</div>
+        <div class="label" style="margin-top:0.5rem">Clientes satisfechos</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="rating-big">
+        <div class="number">+</div>
+        <div class="label">Atención personalizada<br>siempre</div>
+      </div>
+    </div>
+
+    <p class="notice"><i class="fas fa-info-circle"></i> Los testimonios son de clientes reales. Podés agregar los tuyos escribiéndonos por WhatsApp.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="avatar av-blue">M</div>
+          <div class="card-info">
+            <strong>María G.</strong>
+            <span>Ciudad del Este</span>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Excelente atención, me ayudaron a elegir el armazón perfecto para mi cara. Los lentes quedaron con una calidad increíble. ¡Muy recomendable!</p>
+        <span class="card-service"><i class="fas fa-glasses"></i> Lentes oftálmicos</span>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="avatar av-red">C</div>
+          <div class="card-info">
+            <strong>Carlos R.</strong>
+            <span>Ciudad del Este</span>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Fui con mi receta de lentes multifocales y me atendieron muy bien. Me explicaron todo sobre los tratamientos y el precio fue muy accesible.</p>
+        <span class="card-service"><i class="fas fa-layer-group"></i> Lentes multifocales</span>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="avatar av-green">L</div>
+          <div class="card-info">
+            <strong>Laura P.</strong>
+            <span>Ciudad del Este</span>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Llevo a mis hijos desde pequeños. Siempre los atienden con mucha paciencia y los lentes duran mucho. Un lugar de confianza para toda la familia.</p>
+        <span class="card-service"><i class="fas fa-child"></i> Lentes para niños</span>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="avatar av-purple">A</div>
+          <div class="card-info">
+            <strong>Alejandro M.</strong>
+            <span>Ciudad del Este</span>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Me adaptaron lentes de contacto por primera vez y tuve todo el acompañamiento necesario. Me enseñaron cómo usarlos y me hicieron seguimiento.</p>
+        <span class="card-service"><i class="fas fa-circle-dot"></i> Lentes de contacto</span>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="avatar av-orange">S</div>
+          <div class="card-info">
+            <strong>Sandra V.</strong>
+            <span>Ciudad del Este</span>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Se me rompió el armazón y lo repararon el mismo día. Muy rápidos y el precio fue justo. Sin duda vuelvo para mis próximos lentes.</p>
+        <span class="card-service"><i class="fas fa-screwdriver-wrench"></i> Reparación de armazones</span>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="avatar av-teal">R</div>
+          <div class="card-info">
+            <strong>Roberto F.</strong>
+            <span>Ciudad del Este</span>
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Consulté por WhatsApp antes de ir y me respondieron al toque. Cuando llegué ya sabían lo que necesitaba. Atención muy profesional y personalizada.</p>
+        <span class="card-service"><i class="fab fa-whatsapp"></i> Consulta por WhatsApp</span>
+      </div>
+
+    </div>
+
+    <div class="cta-box">
+      <h2>¿Querés compartir tu experiencia?</h2>
+      <p>Escribinos por WhatsApp y contanos cómo fue tu atención en Centro Óptico Santa Fe.</p>
+      <a href="https://wa.me/595973851449?text=Hola%2C%20quiero%20dejar%20mi%20testimonio%20sobre%20Centro%20%C3%93ptico%20Santa%20Fe"
+         class="btn-wa-lg" target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'testimonios_cta'})">
+        <i class="fab fa-whatsapp"></i> Escribir mi testimonio
+      </a>
+    </div>
+
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Volver al sitio principal</a>
+  </div>
+
+  <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>
