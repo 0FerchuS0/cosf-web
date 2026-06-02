@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Óptica en Ciudad del Este. Consulta visual, lentes oftálmicos, lentes de contacto, multifocales y asesoramiento profesional." />
+  <meta name="keywords" content="óptica en Ciudad del Este, lentes en CDE, lentes de contacto, lentes multifocales, Centro Óptico Santa Fe, consulta visual" />
+  <meta name="author" content="Centro Óptico Santa Fe" />
+  <meta property="og:title" content="Centro Óptico Santa Fe | Óptica en Ciudad del Este" />
+  <meta property="og:description" content="Consulta visual, lentes oftálmicos, lentes de contacto y asesoramiento profesional en Ciudad del Este, Paraguay." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_PY" />
+
+  <title>Centro Óptico Santa Fe | Óptica en Ciudad del Este</title>
+
+  <!-- Google Analytics GA4 — reemplazá G-XXXXXXXXXX con tu Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF9F70N90P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CF9F70N90P');
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo-link">
+        <img src="assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" />
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#por-que" class="nav-link">Por qué elegirnos</a></li>
+          <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+        <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+           class="btn btn-whatsapp header-wa"
+           target="_blank" rel="noopener"
+           onclick="gtag('event','click_whatsapp',{event_category:'header'})">
+          <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="hero-badge">Óptica profesional en Ciudad del Este</span>
+        <h1 class="hero-title">Cuidamos tu visión con atención profesional y lentes de calidad</h1>
+        <p class="hero-subtitle">En Centro Óptico Santa Fe te ayudamos a encontrar la mejor solución visual, con asesoramiento personalizado, controles visuales y lentes adaptados a tus necesidades.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+             class="btn btn-whatsapp btn-lg"
+             target="_blank" rel="noopener"
+             onclick="gtag('event','click_whatsapp',{event_category:'hero'})">
+            <i class="fab fa-whatsapp"></i> Agendar por WhatsApp
+          </a>
+          <a href="#ubicacion" class="btn btn-outline btn-lg">
+            <i class="fas fa-map-marker-alt"></i> Ver ubicación
+          </a>
+        </div>
+        <div class="hero-info">
+          <span><i class="fas fa-clock"></i> Lun–Vie 08:00–12:00 y 14:00–17:00</span>
+          <span><i class="fas fa-map-marker-alt"></i> Ciudad del Este, Paraguay</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-frame">
+          <div class="hero-icon-display">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="hero-card-float card-1">
+            <i class="fas fa-check-circle"></i>
+            <span>Asesoramiento personalizado</span>
+          </div>
+          <div class="hero-card-float card-2">
+            <i class="fas fa-glasses"></i>
+            <span>Lentes de calidad</span>
+          </div>
+          <div class="hero-card-float card-3">
+            <i class="fab fa-whatsapp"></i>
+            <span>Atención por WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <span class="stat-icon"><i class="fas fa-users"></i></span>
+        <div>
+          <strong>Cientos de clientes</strong>
+          <span>satisfechos en CDE</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon"><i class="fas fa-glasses"></i></span>
+        <div>
+          <strong>Variedad de lentes</strong>
+          <span>oftálmicos y de contacto</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon"><i class="fas fa-star"></i></span>
+        <div>
+          <strong>Atención personalizada</strong>
+          <span>antes y después de la compra</span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon"><i class="fab fa-whatsapp"></i></span>
+        <div>
+          <strong>Consultas por WhatsApp</strong>
+          <span>rápido y sin turnos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Lo que hacemos</span>
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <p class="section-desc">Brindamos soluciones visuales completas para toda la familia, con atención profesional y productos de calidad.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon blue">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3>Consulta visual</h3>
+          <p>Evaluación completa de tu visión para detectar problemas visuales y determinar tu corrección óptica exacta.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon red">
+            <i class="fas fa-prescription"></i>
+          </div>
+          <h3>Recetas y lentes oftálmicos</h3>
+          <p>Trabajamos con tu receta médica para fabricar los lentes correctos, con los mejores tratamientos disponibles.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon blue">
+            <i class="fas fa-circle-dot"></i>
+          </div>
+          <h3>Lentes de contacto</h3>
+          <p>Asesoramiento y adaptación de lentes de contacto blandos, tóricos y multifocales según tu necesidad.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon red">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3>Lentes multifocales</h3>
+          <p>Solución para quienes necesitan ver de cerca y de lejos con un solo par de lentes, sin líneas visibles.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon blue">
+            <i class="fas fa-child"></i>
+          </div>
+          <h3>Lentes para niños</h3>
+          <p>Cuidamos la visión de los más pequeños con lentes especialmente adaptados, cómodos y resistentes.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon red">
+            <i class="fas fa-screwdriver-wrench"></i>
+          </div>
+          <h3>Ajuste y reparación de armazones</h3>
+          <p>Reparamos y ajustamos tu armazón para que siempre estés cómodo y tus lentes en su posición correcta.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon blue">
+            <i class="fas fa-wand-magic-sparkles"></i>
+          </div>
+          <h3>Asesoramiento en armazones</h3>
+          <p>Te guiamos para elegir el armazón ideal según tu rostro, estilo de vida y preferencias estéticas.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon red">
+            <i class="fas fa-ruler-combined"></i>
+          </div>
+          <h3>Medidas ópticas personalizadas</h3>
+          <p>Tomamos todas las medidas necesarias para asegurar que tus lentes estén perfectamente centrados.</p>
+        </div>
+
+      </div>
+      <div class="section-cta">
+        <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20consultar%20sobre%20sus%20servicios"
+           class="btn btn-whatsapp btn-lg"
+           target="_blank" rel="noopener"
+           onclick="gtag('event','click_whatsapp',{event_category:'servicios'})">
+          <i class="fab fa-whatsapp"></i> Consultar por un servicio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POR QUÉ ELEGIRNOS ===== -->
+  <section class="section section-alt" id="por-que">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Nuestra diferencia</span>
+        <h2 class="section-title">¿Por qué elegir Centro Óptico Santa Fe?</h2>
+        <p class="section-desc">Más que una óptica, somos tu aliado en salud visual.</p>
+      </div>
+      <div class="why-grid">
+
+        <div class="why-card">
+          <div class="why-icon">
+            <i class="fas fa-heart-pulse"></i>
+          </div>
+          <h3>Atención personalizada</h3>
+          <p>Cada cliente es único. Nos tomamos el tiempo para entender tus necesidades y ofrecerte la mejor solución visual.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <i class="fas fa-user-doctor"></i>
+          </div>
+          <h3>Asesoramiento profesional</h3>
+          <p>Contamos con personal capacitado que te orienta en cada paso, desde la consulta hasta la entrega de tus lentes.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3>Experiencia en óptica y contactología</h3>
+          <p>Amplia trayectoria en el rubro óptico nos permite brindarte soluciones probadas y confiables.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <i class="fas fa-list-check"></i>
+          </div>
+          <h3>Variedad de soluciones visuales</h3>
+          <p>Desde lentes monofocales hasta de contacto multifocales, tenemos opciones para cada estilo de vida y presupuesto.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Acompañamiento completo</h3>
+          <p>No terminamos en la venta. Te acompañamos en la adaptación y hacemos seguimiento para asegurar tu satisfacción.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">
+            <i class="fas fa-location-dot"></i>
+          </div>
+          <h3>Ubicación accesible en CDE</h3>
+          <p>Estamos en el Barrio San Isidro, Ciudad del Este, con fácil acceso y estacionamiento en la zona.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LENTES Y SOLUCIONES ===== -->
+  <section class="section" id="soluciones">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Soluciones visuales</span>
+        <h2 class="section-title">Lentes para cada necesidad</h2>
+        <p class="section-desc">No todos los lentes son iguales. Te ayudamos a elegir según tu receta, tu actividad diaria y tu presupuesto.</p>
+      </div>
+      <div class="lenses-grid">
+
+        <div class="lens-card">
+          <div class="lens-header">
+            <i class="fas fa-circle"></i>
+            <h3>Monofocales</h3>
+          </div>
+          <p>Corrección para una sola distancia: miopía, hipermetropía o astigmatismo. La opción más común y accesible.</p>
+        </div>
+
+        <div class="lens-card">
+          <div class="lens-header">
+            <i class="fas fa-circle-half-stroke"></i>
+            <h3>Bifocales</h3>
+          </div>
+          <p>Dos zonas de corrección en un mismo lente: para lejos en la parte superior y para cerca en la inferior.</p>
+        </div>
+
+        <div class="lens-card">
+          <div class="lens-header">
+            <i class="fas fa-layer-group"></i>
+            <h3>Multifocales / Progresivos</h3>
+          </div>
+          <p>Transición suave entre distancias sin líneas visibles. Ideal para presbicia con máxima comodidad estética.</p>
+        </div>
+
+        <div class="lens-card">
+          <div class="lens-header">
+            <i class="fas fa-sun"></i>
+            <h3>Con filtro UV</h3>
+          </div>
+          <p>Protegen tus ojos de la radiación ultravioleta del sol, reduciendo el riesgo de cataratas y daño ocular.</p>
+        </div>
+
+        <div class="lens-card">
+          <div class="lens-header">
+            <i class="fas fa-cloud-sun"></i>
+            <h3>Fotocromáticos</h3>
+          </div>
+          <p>Se oscurecen automáticamente con la luz solar y vuelven a su estado claro en interiores. Versátiles y cómodos.</p>
+        </div>
+
+        <div class="lens-card">
+          <div class="lens-header">
+            <i class="fas fa-laptop"></i>
+            <h3>Con antirreflejo</h3>
+          </div>
+          <p>Eliminan los reflejos molestos de pantallas, luces y conducción nocturna. Mejoran la nitidez visual.</p>
+        </div>
+
+        <div class="lens-card">
+          <div class="lens-header">
+            <i class="fas fa-circle-dot"></i>
+            <h3>Lentes de contacto blandos</h3>
+          </div>
+          <p>Cómodos y fáciles de usar. Disponibles en uso diario, semanal o mensual para distintas correcciones.</p>
+        </div>
+
+        <div class="lens-card">
+          <div class="lens-header">
+            <i class="fas fa-arrows-rotate"></i>
+            <h3>Lentes de contacto tóricos y multifocales</h3>
+          </div>
+          <p>Para astigmatismo o presbicia. Solución de contacto con la corrección específica que necesitás.</p>
+        </div>
+
+      </div>
+      <div class="lenses-callout">
+        <div class="callout-box">
+          <i class="fas fa-lightbulb"></i>
+          <p>"No todos los lentes son iguales. Te ayudamos a elegir según tu receta, tu actividad diaria y tu presupuesto."</p>
+          <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20consultar%20sobre%20qu%C3%A9%20lentes%20necesito"
+             class="btn btn-whatsapp"
+             target="_blank" rel="noopener"
+             onclick="gtag('event','click_whatsapp',{event_category:'soluciones'})">
+            <i class="fab fa-whatsapp"></i> Consultá cuál es el ideal para vos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA PRINCIPAL ===== -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <div class="cta-text">
+        <h2>¿Tenés una receta o necesitás hacer una consulta?</h2>
+        <p>Escribinos por WhatsApp y te respondemos a la brevedad. Sin turnos, sin esperas.</p>
+      </div>
+      <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+         class="btn btn-whatsapp btn-xl"
+         target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'cta_principal'})">
+        <i class="fab fa-whatsapp"></i> Enviar mensaje por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== UBICACIÓN ===== -->
+  <section class="section section-alt" id="ubicacion">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Dónde estamos</span>
+        <h2 class="section-title">Ubicación</h2>
+        <p class="section-desc">Encontranos fácilmente en el Barrio San Isidro de Ciudad del Este.</p>
+      </div>
+      <div class="location-grid">
+        <div class="location-info">
+          <div class="location-detail">
+            <div class="location-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <strong>Dirección</strong>
+              <span>Blas Garay 1149 c/ Avda. San José<br>Barrio San Isidro, Ciudad del Este, Paraguay</span>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="location-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div>
+              <strong>Horario de atención</strong>
+              <span>Lunes a Viernes<br>08:00 a 12:00 y 14:00 a 17:00</span>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="location-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div>
+              <strong>Consultas por WhatsApp</strong>
+              <span>+595 973 851 449<br>Respondemos a la brevedad</span>
+            </div>
+          </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Blas+Garay+1149+San+Jos%C3%A9+Ciudad+del+Este+Paraguay"
+             class="btn btn-primary btn-lg"
+             target="_blank" rel="noopener">
+            <i class="fas fa-route"></i> Cómo llegar
+          </a>
+        </div>
+        <div class="map-container">
+          <!-- Reemplazá este bloque por el iframe de Google Maps cuando lo tengas -->
+          <!-- Ejemplo: <iframe src="https://www.google.com/maps/embed?pb=..." ...></iframe> -->
+          <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <p>Blas Garay 1149 c/ Avda. San José<br>Barrio San Isidro, Ciudad del Este</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Blas+Garay+1149+San+Jos%C3%A9+Ciudad+del+Este+Paraguay"
+               target="_blank" rel="noopener" class="map-link">
+              Ver en Google Maps <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Hablemos</span>
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-desc">Estamos para ayudarte. Elegí la forma que más te resulte cómoda.</p>
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-card whatsapp-card">
+          <div class="contact-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>+595 973 851 449</p>
+          <p class="contact-sub">Consultas, preguntas sobre lentes, recetas o precios. Te respondemos rápido.</p>
+          <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+             class="btn btn-whatsapp"
+             target="_blank" rel="noopener"
+             onclick="gtag('event','click_whatsapp',{event_category:'contacto'})">
+            <i class="fab fa-whatsapp"></i> Escribir ahora
+          </a>
+        </div>
+
+        <div class="contact-card instagram-card">
+          <div class="contact-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <h3>Instagram</h3>
+          <p>@cosf_cde</p>
+          <p class="contact-sub">Seguinos para ver novedades, promociones y consejos de salud visual.</p>
+          <a href="https://www.instagram.com/cosf_cde"
+             class="btn btn-instagram"
+             target="_blank" rel="noopener"
+             onclick="gtag('event','click_instagram',{event_category:'contacto'})">
+            <i class="fab fa-instagram"></i> Ver perfil
+          </a>
+        </div>
+
+        <div class="contact-card location-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Dirección</h3>
+          <p>Blas Garay 1149 c/ Avda. San José</p>
+          <p class="contact-sub">Barrio San Isidro, Ciudad del Este, Paraguay</p>
+          <div class="contact-hours">
+            <i class="fas fa-clock"></i>
+            <span>Lun–Vie: 08:00–12:00 y 14:00–17:00</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img logo-img-footer" />
+        <p class="footer-slogan">Ver bien, se siente aún mejor.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/cosf_cde" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/595973851449" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#por-que">Por qué elegirnos</a></li>
+          <li><a href="#soluciones">Soluciones visuales</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <ul>
+          <li><i class="fab fa-whatsapp"></i> +595 973 851 449</li>
+          <li><i class="fab fa-instagram"></i> @cosf_cde</li>
+          <li><i class="fas fa-map-marker-alt"></i> Blas Garay 1149 c/ San José, Barrio San Isidro, CDE</li>
+          <li><i class="fas fa-clock"></i> Lun–Vie: 08:00–12:00 y 14:00–17:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 Centro Óptico Santa Fe — Ciudad del Este, Paraguay.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+     class="whatsapp-float"
+     target="_blank" rel="noopener"
+     aria-label="Contactar por WhatsApp"
+     onclick="gtag('event','click_whatsapp',{event_category:'flotante'})">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+</html>

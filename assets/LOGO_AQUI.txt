@@ -1,0 +1,14 @@
+Colocá el logo oficial de Centro Óptico Santa Fe en esta carpeta con el nombre:
+
+  logo.png  (fondo transparente, PNG)
+
+Luego en index.html, buscá el bloque:
+
+  <!-- Reemplazá este bloque con ... -->
+  <div class="logo-placeholder"> ... </div>
+
+Y reemplazalo por:
+
+  <img src="assets/logo.png" alt="Centro Óptico Santa Fe" class="logo-img">
+
+Hacé lo mismo en el footer (hay un segundo logo-placeholder).
