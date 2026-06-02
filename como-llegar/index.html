@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cómo llegar | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <meta name="description" content="Cómo llegar a Centro Óptico Santa Fe. Blas Garay 1149 c/ Avda. San José, Barrio San Isidro, Ciudad del Este, Paraguay." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF9F70N90P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CF9F70N90P');
+    gtag('event', 'page_view_como_llegar', { event_category: 'landing_ads' });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; }
+    a { text-decoration: none; color: inherit; }
+
+    .header {
+      background: #fff;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+      padding: 0 1.25rem;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-img { height: 44px; width: auto; }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25D366;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn-wa:hover { background: #1da851; }
+
+    .hero {
+      background: linear-gradient(135deg, #143d7a, #1B4F9C);
+      color: #fff;
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+    .hero p { font-size: 1rem; color: rgba(255,255,255,0.82); }
+
+    .main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .info-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .info-card h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: #0f172a;
+    }
+
+    .detail {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+    }
+    .detail-icon {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      background: #e8f0fb;
+      color: #1B4F9C;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .detail div { display: flex; flex-direction: column; gap: 0.15rem; }
+    .detail strong { font-size: 0.85rem; font-weight: 700; color: #1e293b; }
+    .detail span { font-size: 0.83rem; color: #475569; line-height: 1.5; }
+
+    .btn-maps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #1B4F9C;
+      color: #fff;
+      padding: 0.85rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      width: 100%;
+      margin-top: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-maps:hover { background: #143d7a; transform: translateY(-2px); }
+
+    .btn-wa-full {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #25D366;
+      color: #fff;
+      padding: 0.85rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      width: 100%;
+      margin-top: 0.75rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-wa-full:hover { background: #1da851; transform: translateY(-2px); }
+
+    .map-frame {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    /* Reemplazá el map-placeholder por un iframe de Google Maps cuando lo tengas */
+    .map-placeholder {
+      height: 380px;
+      background: #f1f5f9;
+      border: 2px dashed #e2e8f0;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: #94a3b8;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .map-placeholder i { font-size: 2.5rem; color: #1B4F9C; opacity: 0.4; }
+    .map-placeholder p { font-size: 0.88rem; color: #64748b; line-height: 1.5; }
+    .map-link {
+      font-size: 0.85rem;
+      color: #1B4F9C;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .map-link:hover { text-decoration: underline; }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: #1B4F9C;
+      font-weight: 600;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .wa-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+      transition: transform 0.2s;
+      z-index: 999;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 680px) {
+      .main { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/">
+        <img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" />
+      </a>
+      <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+         class="btn-wa" target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'como_llegar_header'})">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1><i class="fas fa-map-marker-alt"></i> Cómo llegar a Centro Óptico Santa Fe</h1>
+    <p>Estamos en el Barrio San Isidro, Ciudad del Este, Paraguay</p>
+  </section>
+
+  <div class="main">
+
+    <div class="info-card">
+      <h2>Información de ubicación</h2>
+
+      <div class="detail">
+        <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <strong>Dirección</strong>
+          <span>Blas Garay 1149 c/ Avda. San José<br>Barrio San Isidro, Ciudad del Este, Paraguay</span>
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-icon"><i class="fas fa-clock"></i></div>
+        <div>
+          <strong>Horario de atención</strong>
+          <span>Lunes a Viernes<br>08:00 a 12:00 y 14:00 a 17:00</span>
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-icon"><i class="fab fa-whatsapp"></i></div>
+        <div>
+          <strong>WhatsApp</strong>
+          <span>+595 973 851 449<br>Consultas sin turno previo</span>
+        </div>
+      </div>
+
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Blas+Garay+1149+San+Jos%C3%A9+Ciudad+del+Este+Paraguay"
+         class="btn-maps" target="_blank" rel="noopener"
+         onclick="gtag('event','click_maps',{event_category:'como_llegar'})">
+        <i class="fas fa-route"></i> Abrir en Google Maps
+      </a>
+
+      <a href="https://wa.me/595973851449?text=Hola%2C%20quiero%20consultar%20c%C3%B3mo%20llegar%20a%20Centro%20%C3%93ptico%20Santa%20Fe"
+         class="btn-wa-full" target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'como_llegar_cta'})">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
+
+      <br>
+      <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Volver al sitio principal</a>
+    </div>
+
+    <div class="map-frame">
+      <!-- REEMPLAZÁ ESTO CON EL IFRAME DE GOOGLE MAPS -->
+      <!-- <iframe src="TU_EMBED_URL" width="100%" height="380" style="border:0;" allowfullscreen loading="lazy"></iframe> -->
+      <div class="map-placeholder">
+        <i class="fas fa-map-marked-alt"></i>
+        <p>Blas Garay 1149 c/ Avda. San José<br>Barrio San Isidro, Ciudad del Este</p>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Blas+Garay+1149+San+Jos%C3%A9+Ciudad+del+Este+Paraguay"
+           target="_blank" rel="noopener" class="map-link">
+          Ver en Google Maps <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>
