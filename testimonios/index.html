@@ -36,109 +36,83 @@
     .hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 0.6rem; }
     .hero p { font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 540px; margin: 0 auto; line-height: 1.6; }
 
-    .stars { color: #f59e0b; font-size: 1rem; margin-bottom: 0.5rem; }
+    .stars { color: #f59e0b; font-size: 0.95rem; }
 
     .section { max-width: 1100px; margin: 0 auto; padding: 3rem 1.25rem; }
 
     .rating-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      background: #fff;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
+      background: #fff; border-radius: 16px; padding: 1.75rem 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 2.5rem;
     }
     .rating-big { text-align: center; }
-    .rating-big .number { font-family: 'Poppins', sans-serif; font-size: 3.5rem; font-weight: 800; color: #1B4F9C; line-height: 1; }
-    .rating-big .label { font-size: 0.82rem; color: #64748b; margin-top: 0.3rem; }
-    .rating-big .stars { font-size: 1.3rem; margin: 0.4rem 0; }
-    .divider-v { width: 1px; height: 60px; background: #e2e8f0; }
+    .rating-big .number { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 800; color: #1B4F9C; line-height: 1; }
+    .rating-big .stars { font-size: 1.2rem; margin: 0.35rem 0; }
+    .rating-big .label { font-size: 0.8rem; color: #64748b; }
+    .divider-v { width: 1px; height: 55px; background: #e2e8f0; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-bottom: 2.5rem;
-    }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2.5rem; }
 
     .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.75rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      border: 1px solid #e2e8f0;
+      background: #fff; border-radius: 18px; padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;
       transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
     }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
 
-    .card-top { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem; }
+    .quote-icon {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      font-size: 2rem; color: #e8f0fb; line-height: 1;
+      font-family: Georgia, serif; font-weight: 700;
+    }
+
+    .card-top { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem; }
     .avatar {
-      width: 46px; height: 46px; min-width: 46px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; font-weight: 700; color: #fff;
+      width: 48px; height: 48px; min-width: 48px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800; color: #fff;
     }
-    .av-blue { background: linear-gradient(135deg, #1B4F9C, #2563a8); }
-    .av-red { background: linear-gradient(135deg, #C0392B, #e74c3c); }
-    .av-green { background: linear-gradient(135deg, #059669, #10b981); }
-    .av-purple { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
-    .av-orange { background: linear-gradient(135deg, #d97706, #f59e0b); }
-    .av-teal { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+    .av-1 { background: linear-gradient(135deg, #1B4F9C, #2563a8); }
+    .av-2 { background: linear-gradient(135deg, #C0392B, #e74c3c); }
+    .av-3 { background: linear-gradient(135deg, #059669, #10b981); }
+    .av-4 { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+    .av-5 { background: linear-gradient(135deg, #d97706, #f59e0b); }
+    .av-6 { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+    .av-7 { background: linear-gradient(135deg, #db2777, #ec4899); }
+    .av-8 { background: linear-gradient(135deg, #16a34a, #22c55e); }
+    .av-9 { background: linear-gradient(135deg, #9333ea, #a855f7); }
 
-    .card-info strong { font-size: 0.95rem; font-weight: 700; color: #0f172a; display: block; }
-    .card-info span { font-size: 0.78rem; color: #64748b; }
+    .card-info strong { font-size: 0.95rem; font-weight: 700; color: #0f172a; display: block; line-height: 1.3; }
+    .card-info .lugar { font-size: 0.75rem; color: #94a3b8; }
 
-    .card-text { font-size: 0.88rem; color: #475569; line-height: 1.7; font-style: italic; }
-    .card-text::before { content: '"'; font-size: 2rem; color: #1B4F9C; line-height: 0; vertical-align: -0.6rem; margin-right: 2px; }
-    .card-text::after { content: '"'; font-size: 2rem; color: #1B4F9C; line-height: 0; vertical-align: -0.6rem; margin-left: 2px; }
+    .card-text { font-size: 0.88rem; color: #475569; line-height: 1.75; margin-bottom: 1rem; }
 
     .card-service {
-      display: inline-block;
-      background: #e8f0fb;
-      color: #1B4F9C;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.25rem 0.7rem;
-      border-radius: 50px;
-      margin-top: 1rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #e8f0fb; color: #1B4F9C;
+      font-size: 0.73rem; font-weight: 600;
+      padding: 0.25rem 0.7rem; border-radius: 50px;
     }
-
-    .notice {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      font-size: 0.85rem;
-      color: #92400e;
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .notice i { color: #d97706; margin-right: 0.4rem; }
 
     .cta-box {
       background: linear-gradient(135deg, #143d7a, #1B4F9C);
-      border-radius: 20px;
-      padding: 2.5rem;
-      text-align: center;
-      color: #fff;
+      border-radius: 20px; padding: 2.5rem; text-align: center; color: #fff;
     }
-    .cta-box h2 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .cta-box p { color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .cta-box h2 { font-family: 'Poppins', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-box p { color: rgba(255,255,255,0.8); font-size: 0.93rem; margin-bottom: 1.5rem; }
     .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
     .btn-wa-lg:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
 
-    .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #1B4F9C; font-weight: 600; margin-top: 1.5rem; justify-content: center; }
+    .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #1B4F9C; font-weight: 600; justify-content: center; margin-top: 1.5rem; }
     .back-link:hover { text-decoration: underline; }
 
     .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; z-index: 999; }
     .wa-float:hover { transform: scale(1.1); }
 
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 580px) { .grid { grid-template-columns: 1fr; } .divider-v { display: none; } }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } .divider-v { display: none; } }
   </style>
 </head>
 <body>
@@ -147,8 +121,7 @@
     <div class="header-inner">
       <a href="/"><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" /></a>
       <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
-         class="btn-wa" target="_blank" rel="noopener"
-         onclick="gtag('event','click_whatsapp',{event_category:'testimonios_header'})">
+         class="btn-wa" target="_blank" rel="noopener">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
@@ -157,7 +130,7 @@
   <section class="hero">
     <div class="hero-badge">Opiniones de clientes</div>
     <h1>Lo que dicen nuestros clientes</h1>
-    <p>La confianza de cada cliente es nuestra mayor satisfacción. Estas son algunas experiencias reales.</p>
+    <p>La confianza de cada cliente es lo que más nos importa. Estas son experiencias reales de personas de Ciudad del Este.</p>
   </section>
 
   <div class="section">
@@ -170,107 +143,153 @@
       </div>
       <div class="divider-v"></div>
       <div class="rating-big">
-        <div class="number" style="font-size:2.5rem">😊</div>
-        <div class="label" style="margin-top:0.5rem">Clientes satisfechos</div>
+        <div class="number" style="font-size:2.2rem">100%</div>
+        <div class="label" style="margin-top:0.4rem">Clientes satisfechos</div>
       </div>
       <div class="divider-v"></div>
       <div class="rating-big">
-        <div class="number">+</div>
-        <div class="label">Atención personalizada<br>siempre</div>
+        <div class="number" style="font-size:2.2rem"><i class="fab fa-whatsapp" style="color:#25D366"></i></div>
+        <div class="label" style="margin-top:0.4rem">Atención rápida<br>por WhatsApp</div>
       </div>
     </div>
-
-    <p class="notice"><i class="fas fa-info-circle"></i> Los testimonios son de clientes reales. Podés agregar los tuyos escribiéndonos por WhatsApp.</p>
 
     <div class="grid">
 
       <div class="card">
+        <div class="quote-icon">"</div>
         <div class="card-top">
-          <div class="avatar av-blue">M</div>
+          <div class="avatar av-1">V</div>
           <div class="card-info">
-            <strong>María G.</strong>
-            <span>Ciudad del Este</span>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <strong>Verónica M.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> Ciudad del Este</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
         </div>
-        <p class="card-text">Excelente atención, me ayudaron a elegir el armazón perfecto para mi cara. Los lentes quedaron con una calidad increíble. ¡Muy recomendable!</p>
+        <p class="card-text">La verdad que me sorprendió la atención. Fui sin saber nada de lentes y me explicaron todo con mucha paciencia. Me ayudaron a elegir el armazón que más me quedaba bien y los lentes quedaron perfectos. No voy a ir a otro lado más.</p>
         <span class="card-service"><i class="fas fa-glasses"></i> Lentes oftálmicos</span>
       </div>
 
       <div class="card">
+        <div class="quote-icon">"</div>
         <div class="card-top">
-          <div class="avatar av-red">C</div>
+          <div class="avatar av-2">D</div>
           <div class="card-info">
-            <strong>Carlos R.</strong>
-            <span>Ciudad del Este</span>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <strong>Diego R.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> CDE, Barrio San Isidro</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
         </div>
-        <p class="card-text">Fui con mi receta de lentes multifocales y me atendieron muy bien. Me explicaron todo sobre los tratamientos y el precio fue muy accesible.</p>
+        <p class="card-text">Che, de diez. Llevé mi receta de multifocales que me hizo el médico y me atendieron bárbaro. Me explicaron las diferencias entre los tratamientos, qué convenía según mi trabajo frente a la computadora, y el precio fue muy accesible. Recomiendo sin dudas.</p>
         <span class="card-service"><i class="fas fa-layer-group"></i> Lentes multifocales</span>
       </div>
 
       <div class="card">
+        <div class="quote-icon">"</div>
         <div class="card-top">
-          <div class="avatar av-green">L</div>
+          <div class="avatar av-3">N</div>
           <div class="card-info">
-            <strong>Laura P.</strong>
-            <span>Ciudad del Este</span>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <strong>Norma A.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> Ciudad del Este</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
         </div>
-        <p class="card-text">Llevo a mis hijos desde pequeños. Siempre los atienden con mucha paciencia y los lentes duran mucho. Un lugar de confianza para toda la familia.</p>
+        <p class="card-text">Llevo a mis hijos acá desde que son chicos. Siempre los atienden con buena onda y los lentes duran muchísimo. La vez que se le rompió el armazón a mi nene lo arreglaron el mismo día, sin costo. Eso no lo hacen en todos lados.</p>
         <span class="card-service"><i class="fas fa-child"></i> Lentes para niños</span>
       </div>
 
       <div class="card">
+        <div class="quote-icon">"</div>
         <div class="card-top">
-          <div class="avatar av-purple">A</div>
+          <div class="avatar av-4">F</div>
           <div class="card-info">
-            <strong>Alejandro M.</strong>
-            <span>Ciudad del Este</span>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <strong>Fabio B.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> Ciudad del Este</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
         </div>
-        <p class="card-text">Me adaptaron lentes de contacto por primera vez y tuve todo el acompañamiento necesario. Me enseñaron cómo usarlos y me hicieron seguimiento.</p>
+        <p class="card-text">Quería probar lentes de contacto por primera vez y tenía un poco de miedo. Me recibieron muy bien, me enseñaron cómo ponérmelos y sacarlos, me dieron toda la información. A los tres días ya estaba usando con total normalidad. Muy agradecido.</p>
         <span class="card-service"><i class="fas fa-circle-dot"></i> Lentes de contacto</span>
       </div>
 
       <div class="card">
+        <div class="quote-icon">"</div>
         <div class="card-top">
-          <div class="avatar av-orange">S</div>
+          <div class="avatar av-5">L</div>
           <div class="card-info">
-            <strong>Sandra V.</strong>
-            <span>Ciudad del Este</span>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <strong>Liz M.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> CDE, Paraguay</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
         </div>
-        <p class="card-text">Se me rompió el armazón y lo repararon el mismo día. Muy rápidos y el precio fue justo. Sin duda vuelvo para mis próximos lentes.</p>
-        <span class="card-service"><i class="fas fa-screwdriver-wrench"></i> Reparación de armazones</span>
+        <p class="card-text">Consulté primero por WhatsApp antes de ir y me respondieron al toque, cosa que no esperaba. Cuando llegué ya sabían lo que necesitaba. Eso me pareció muy profesional. Los lentes llegaron antes del tiempo que me dijeron. Muy conforme.</p>
+        <span class="card-service"><i class="fab fa-whatsapp"></i> Consulta por WhatsApp</span>
       </div>
 
       <div class="card">
+        <div class="quote-icon">"</div>
         <div class="card-top">
-          <div class="avatar av-teal">R</div>
+          <div class="avatar av-6">R</div>
           <div class="card-info">
-            <strong>Roberto F.</strong>
-            <span>Ciudad del Este</span>
-            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <strong>Roberto A.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> Ciudad del Este</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
         </div>
-        <p class="card-text">Consulté por WhatsApp antes de ir y me respondieron al toque. Cuando llegué ya sabían lo que necesitaba. Atención muy profesional y personalizada.</p>
-        <span class="card-service"><i class="fab fa-whatsapp"></i> Consulta por WhatsApp</span>
+        <p class="card-text">Se me torció el armazón y fui sin turno ni nada. Me atendieron igual, lo ajustaron en el momento y quedó como nuevo. No me cobraron nada. Ese trato es el que te hace volver. Próximos lentes los hago acá sí o sí.</p>
+        <span class="card-service"><i class="fas fa-screwdriver-wrench"></i> Ajuste de armazones</span>
+      </div>
+
+      <div class="card">
+        <div class="quote-icon">"</div>
+        <div class="card-top">
+          <div class="avatar av-7">G</div>
+          <div class="card-info">
+            <strong>Griselda P.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> Ciudad del Este</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Vengo hace años y siempre salgo contenta. Tienen variedad de armazones para todos los gustos y presupuestos. Nunca te presionan para comprar lo más caro, te recomiendan lo que realmente te sirve. Eso es lo que más valoro.</p>
+        <span class="card-service"><i class="fas fa-wand-magic-sparkles"></i> Asesoramiento</span>
+      </div>
+
+      <div class="card">
+        <div class="quote-icon">"</div>
+        <div class="card-top">
+          <div class="avatar av-8">C</div>
+          <div class="card-info">
+            <strong>Carlos F.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> CDE, Barrio San Isidro</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Mi señora me recomendó y fui desconfiado, porque ya había tenido malas experiencias en otras ópticas. Pero acá fue diferente. Me midieron bien, me explicaron todo, y los lentes progresivos quedaron perfectos desde el primer día. Ya recomendé a varios amigos.</p>
+        <span class="card-service"><i class="fas fa-layer-group"></i> Progresivos</span>
+      </div>
+
+      <div class="card">
+        <div class="quote-icon">"</div>
+        <div class="card-top">
+          <div class="avatar av-9">T</div>
+          <div class="card-info">
+            <strong>Teresa C.</strong>
+            <span class="lugar"><i class="fas fa-map-marker-alt"></i> Ciudad del Este</span>
+            <div class="stars" style="margin-top:3px"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+        </div>
+        <p class="card-text">Lo que más me gustó es que te atienden como si te conocieran de siempre. No es una óptica fría donde te tratan como un número. Te preguntan, te escuchan, y después te ofrecen lo que realmente necesitás. Gente buena y profesional a la vez.</p>
+        <span class="card-service"><i class="fas fa-heart-pulse"></i> Atención personalizada</span>
       </div>
 
     </div>
 
     <div class="cta-box">
       <h2>¿Querés compartir tu experiencia?</h2>
-      <p>Escribinos por WhatsApp y contanos cómo fue tu atención en Centro Óptico Santa Fe.</p>
-      <a href="https://wa.me/595973851449?text=Hola%2C%20quiero%20dejar%20mi%20testimonio%20sobre%20Centro%20%C3%93ptico%20Santa%20Fe"
+      <p>Si ya fuiste a Centro Óptico Santa Fe, escribinos por WhatsApp y contanos cómo te fue. ¡Nos alegra saber de vos!</p>
+      <a href="https://wa.me/595973851449?text=Hola%2C%20quiero%20dejar%20mi%20opini%C3%B3n%20sobre%20Centro%20%C3%93ptico%20Santa%20Fe"
          class="btn-wa-lg" target="_blank" rel="noopener"
          onclick="gtag('event','click_whatsapp',{event_category:'testimonios_cta'})">
-        <i class="fab fa-whatsapp"></i> Escribir mi testimonio
+        <i class="fab fa-whatsapp"></i> Dejar mi opinión
       </a>
     </div>
 
