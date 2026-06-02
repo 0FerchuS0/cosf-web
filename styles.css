@@ -916,23 +916,23 @@ img { max-width: 100%; display: block; }
   gap: 0.3rem;
 }
 .nav-more-btn i { font-size: 0.7rem; transition: transform var(--transition); }
-.nav-dropdown:hover .nav-more-btn i { transform: rotate(180deg); }
+.nav-dropdown.open .nav-more-btn i { transform: rotate(180deg); }
 
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%);
   background: var(--white);
   border-radius: 14px;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--gray-200);
-  min-width: 200px;
+  min-width: 210px;
   padding: 0.5rem;
   z-index: 200;
 }
-.nav-dropdown:hover .dropdown-menu { display: block; }
+.nav-dropdown.open .dropdown-menu { display: block; }
 
 .dropdown-menu li a {
   display: flex;

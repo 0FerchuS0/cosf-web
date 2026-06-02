@@ -1,3 +1,24 @@
+// ===== DROPDOWN "MÁS" =====
+const dropdown = document.querySelector('.nav-dropdown');
+const moreBtn = document.querySelector('.nav-more-btn');
+
+if (moreBtn) {
+  moreBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+  // Cerrar al hacer click fuera
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+  // Cerrar al elegir una opción
+  dropdown.querySelectorAll('.dropdown-menu a').forEach(link => {
+    link.addEventListener('click', () => dropdown.classList.remove('open'));
+  });
+}
+
 // ===== HEADER SCROLL =====
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
