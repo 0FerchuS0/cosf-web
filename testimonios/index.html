@@ -51,6 +51,8 @@
     .rating-big .stars { font-size: 1.2rem; margin: 0.35rem 0; }
     .rating-big .label { font-size: 0.8rem; color: #64748b; }
     .divider-v { width: 1px; height: 55px; background: #e2e8f0; }
+    .google-reviews-btn { text-align:center; display:block; padding:0.5rem 0.75rem; border-radius:10px; border:1px solid #e2e8f0; transition:all 0.2s; }
+    .google-reviews-btn:hover { background:#f8fafc; box-shadow:0 2px 8px rgba(0,0,0,0.1); transform:translateY(-2px); }
 
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2.5rem; }
 
@@ -150,6 +152,17 @@
       <div class="rating-big">
         <div class="number" style="font-size:2.2rem"><i class="fab fa-whatsapp" style="color:#25D366"></i></div>
         <div class="label" style="margin-top:0.4rem">Atención rápida<br>por WhatsApp</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="rating-big">
+        <a href="https://www.google.com/maps/search/Centro+%C3%93ptico+Santa+Fe+Ciudad+del+Este+Paraguay"
+           target="_blank" rel="noopener" class="google-reviews-btn"
+           onclick="gtag('event','click_google_reviews',{event_category:'testimonios'})">
+          <img src="https://www.gstatic.com/images/branding/product/2x/maps_96dp.png" alt="Google" style="width:32px;height:32px;margin:0 auto 0.3rem;display:block;" />
+          <div style="font-size:0.78rem;font-weight:700;color:#1B4F9C;">Ver reseñas en</div>
+          <div style="font-size:0.85rem;font-weight:800;color:#1a73e8;">Google Maps</div>
+          <div style="font-size:0.72rem;color:#64748b;margin-top:2px;">↗ Abrir en Google</div>
+        </a>
       </div>
     </div>
 
