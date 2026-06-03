@@ -34,6 +34,22 @@
 </head>
 <body>
 
+  <!-- ===== BARRA SUPERIOR ANUNCIO ===== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span class="top-bar-dot"></span>
+      <p>
+        <strong>¿No podés venir en nuestro horario?</strong>
+        Agendá tu control visual por WhatsApp al horario que más te quede cómodo.
+      </p>
+      <a href="https://wa.me/595973851449?text=Hola%2C%20quiero%20agendar%20mi%20control%20visual%20en%20un%20horario%20especial"
+         target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'top_bar'})">
+        <i class="fab fa-whatsapp"></i> Agendar ahora
+      </a>
+    </div>
+  </div>
+
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header-inner">
@@ -127,19 +143,19 @@
   <section class="banner-24">
     <div class="container banner-24-inner">
       <div class="banner-24-left">
-        <span class="badge-urgente"><i class="fas fa-circle-dot"></i> Disponible ahora</span>
-        <h2>Consultas por WhatsApp <strong>las 24 horas</strong>, los 7 días</h2>
-        <p>¿Se te rompieron los lentes? ¿Tenés una duda urgente sobre tu receta? Escribinos a cualquier hora y te respondemos a la brevedad.</p>
+        <span class="badge-urgente"><i class="fas fa-circle-dot"></i> Atención continua</span>
+        <h2>¿No podés venir en nuestro horario habitual? <strong>Te atendemos igual</strong></h2>
+        <p>Si necesitás medir tu agudeza visual y el horario regular no te queda bien, escribinos por WhatsApp y coordinamos una atención a la hora que más te convenga.</p>
       </div>
       <div class="banner-24-right">
-        <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20tengo%20una%20consulta%20urgente"
+        <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20necesito%20hacer%20mi%20control%20visual%20pero%20no%20puedo%20en%20el%20horario%20habitual%2C%20%C2%BFpodemos%20coordinar%3F"
            class="btn-urgente"
            target="_blank" rel="noopener"
-           onclick="gtag('event','click_whatsapp',{event_category:'urgencia_24hs'})">
+           onclick="gtag('event','click_whatsapp',{event_category:'atencion_continua'})">
           <i class="fab fa-whatsapp"></i>
           <div>
-            <span class="btn-urgente-title">Consulta urgente</span>
-            <span class="btn-urgente-sub">Respondemos 24/7</span>
+            <span class="btn-urgente-title">Coordinar mi turno</span>
+            <span class="btn-urgente-sub">Al horario que te quede bien</span>
           </div>
         </a>
       </div>
