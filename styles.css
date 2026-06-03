@@ -208,12 +208,18 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
 }
 .top-bar-line2 {
-  font-size: 1rem !important;
+  font-size: 1.15rem !important;
   font-weight: 700 !important;
   color: #fff !important;
   letter-spacing: 0.02em;
 }
 .top-bar-line2 i { color: #34d399; margin-right: 0.3rem; }
+.top-bar-line2 strong {
+  color: #ff3b3b !important;
+  font-size: 1.3rem !important;
+  font-weight: 900 !important;
+  text-shadow: 0 0 12px rgba(255,59,59,0.6);
+}
 .top-bar a {
   display: inline-flex;
   align-items: center;
