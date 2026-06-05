@@ -90,6 +90,24 @@ animTargets.forEach((el, i) => {
   fadeObserver.observe(el);
 });
 
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // cerrar todos
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+    });
+    // abrir el clickeado si estaba cerrado
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
 // ===== SMOOTH SCROLL para links internos =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
