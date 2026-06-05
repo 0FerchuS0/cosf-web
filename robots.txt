@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /agendar/
+
+Sitemap: https://centro-optico-santafe.netlify.app/sitemap.xml
