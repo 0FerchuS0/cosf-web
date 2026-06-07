@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test de Visión Gratuito | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <link rel="canonical" href="https://centro-optico-santafe.netlify.app/test-visual/" />
+  <meta name="description" content="Hacé el test de visión gratuito de Centro Óptico Santa Fe. 7 preguntas para saber si necesitás una evaluación visual en Ciudad del Este, Paraguay." />
+  <meta property="og:title" content="Test de Visión Gratuito | Centro Óptico Santa Fe" />
+  <meta property="og:description" content="¿Tu vista está bien? Respondé 7 preguntas y descubrí si necesitás una evaluación visual." />
+  <meta property="og:url" content="https://centro-optico-santafe.netlify.app/test-visual/" />
+  <meta property="og:image" content="https://centro-optico-santafe.netlify.app/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF9F70N90P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CF9F70N90P');
+    gtag('event', 'page_view_test_visual', { event_category: 'quiz_funnel' });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1B4F9C;
+      --dark-blue: #143d7a;
+      --red: #C0392B;
+      --green: #25D366;
+      --bg: #f0f4ff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #1e293b;
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER */
+    .header {
+      background: #fff;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+      padding: 0 1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-img { height: 40px; width: auto; }
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      color: var(--blue);
+      font-weight: 600;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* HERO */
+    .quiz-hero {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1.25rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .quiz-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 60px;
+      background: var(--bg);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .quiz-hero .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      padding: 0.35rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+      backdrop-filter: blur(4px);
+    }
+    .quiz-hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .quiz-hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .quiz-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .quiz-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+    .quiz-meta i { color: #93c5fd; }
+
+    /* CONTENEDOR PRINCIPAL */
+    .quiz-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+      margin-top: -1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* PROGRESO */
+    .progress-bar-wrap {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem 1rem;
+      box-shadow: 0 2px 16px rgba(27,79,156,0.1);
+      margin-bottom: 1.25rem;
+    }
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+    .progress-labels span {
+      font-size: 0.82rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .progress-labels strong {
+      font-size: 0.88rem;
+      color: var(--blue);
+      font-weight: 700;
+    }
+    .progress-track {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), #3b82f6);
+      border-radius: 50px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0%;
+    }
+
+    /* TARJETA DE PREGUNTA */
+    .question-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 4px 24px rgba(27,79,156,0.1);
+      animation: slideIn 0.35s ease;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .question-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #eff6ff;
+      color: var(--blue);
+      border-radius: 50px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .question-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .question-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+    .question-hint {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* OPCIONES */
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #1e293b;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+    }
+    .option-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .option-btn:hover {
+      border-color: var(--blue);
+      transform: translateX(4px);
+    }
+    .option-btn:hover::before { opacity: 1; }
+    .option-btn:hover .option-letter {
+      background: var(--blue);
+      color: #fff;
+    }
+    .option-btn.selected {
+      border-color: var(--blue);
+      background: #eff6ff;
+    }
+    .option-btn.selected .option-letter {
+      background: var(--blue);
+      color: #fff;
+    }
+    .option-letter {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      background: #e2e8f0;
+      color: #64748b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+    .option-text {
+      position: relative;
+      z-index: 1;
+      line-height: 1.4;
+    }
+
+    /* RESULTADO */
+    .result-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.25rem 1.75rem;
+      box-shadow: 0 4px 24px rgba(27,79,156,0.1);
+      text-align: center;
+      animation: slideIn 0.4s ease;
+      display: none;
+    }
+    .result-icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 1.25rem;
+    }
+    .result-icon-wrap.high   { background: #fef2f2; color: var(--red); }
+    .result-icon-wrap.medium { background: #fffbeb; color: #d97706; }
+    .result-icon-wrap.low    { background: #f0fdf4; color: #16a34a; }
+
+    .result-level {
+      display: inline-block;
+      border-radius: 50px;
+      padding: 0.3rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .result-level.high   { background: #fef2f2; color: var(--red); }
+    .result-level.medium { background: #fffbeb; color: #d97706; }
+    .result-level.low    { background: #f0fdf4; color: #16a34a; }
+
+    .result-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .result-desc {
+      font-size: 0.96rem;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .result-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.75rem;
+    }
+    .result-tag {
+      background: #eff6ff;
+      color: var(--blue);
+      border-radius: 50px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .result-tag.red {
+      background: #fef2f2;
+      color: var(--red);
+    }
+
+    .btn-wa-result {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--green);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 100%;
+      transition: background 0.2s, transform 0.2s;
+      margin-bottom: 0.75rem;
+    }
+    .btn-wa-result:hover { background: #1da851; transform: translateY(-2px); }
+
+    .btn-repeat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--blue);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      margin: 0 auto;
+    }
+    .btn-repeat:hover { text-decoration: underline; }
+
+    .disclaimer {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 1.25rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* WA FLOAT */
+    .wa-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 56px;
+      height: 56px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+      transition: transform 0.2s;
+      z-index: 999;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 480px) {
+      .question-card, .result-card { padding: 1.5rem 1.25rem; }
+      .quiz-meta { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/">
+        <img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" />
+      </a>
+      <a href="/" class="back-link">
+        <i class="fas fa-arrow-left"></i> Volver al inicio
+      </a>
+    </div>
+  </header>
+
+  <section class="quiz-hero">
+    <div class="badge"><i class="fas fa-eye"></i> Test de visión gratuito</div>
+    <h1>¿Tu visión está al 100%?</h1>
+    <p>Respondé 7 preguntas rápidas y descubrí si necesitás una evaluación visual profesional.</p>
+    <div class="quiz-meta">
+      <span><i class="fas fa-clock"></i> Solo 2 minutos</span>
+      <span><i class="fas fa-shield-halved"></i> Totalmente gratuito</span>
+      <span><i class="fas fa-user-doctor"></i> Sin turno previo</span>
+    </div>
+  </section>
+
+  <div class="quiz-wrap">
+
+    <!-- BARRA DE PROGRESO -->
+    <div class="progress-bar-wrap">
+      <div class="progress-labels">
+        <span>Pregunta <strong id="currentQ">1</strong> de 7</span>
+        <strong id="progressPct">0%</strong>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- PREGUNTAS -->
+    <div class="question-card" id="quizCard">
+      <span class="question-number" id="qNumber"><i class="fas fa-circle-question"></i> Pregunta 1</span>
+      <span class="question-icon" id="qIcon">🕐</span>
+      <p class="question-text" id="qText"></p>
+      <p class="question-hint" id="qHint"></p>
+      <div class="options" id="optionsContainer"></div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="result-card" id="resultCard">
+      <div class="result-icon-wrap" id="resultIconWrap">
+        <i class="fas fa-eye" id="resultIcon"></i>
+      </div>
+      <span class="result-level" id="resultLevel"></span>
+      <h2 class="result-title" id="resultTitle"></h2>
+      <p class="result-desc" id="resultDesc"></p>
+      <div class="result-tags" id="resultTags"></div>
+      <a href="#" class="btn-wa-result" id="waBtn" target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'test_visual_resultado'})">
+        <i class="fab fa-whatsapp"></i> Consultar con un especialista ahora
+      </a>
+      <button class="btn-repeat" onclick="reiniciarTest()">
+        <i class="fas fa-rotate-left"></i> Repetir el test
+      </button>
+      <p class="disclaimer">* Este test es orientativo y no reemplaza una evaluación médica profesional.</p>
+    </div>
+
+  </div>
+
+  <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const preguntas = [
+      {
+        icon: '🕐',
+        texto: '¿Cuándo fue la última vez que te revisaron la vista?',
+        hint: 'Los especialistas recomiendan una evaluación visual al menos cada 1-2 años.',
+        opciones: [
+          { texto: 'Nunca me hice una revisión', peso: 3 },
+          { texto: 'Hace más de 2 años', peso: 2 },
+          { texto: 'Hace 1 a 2 años', peso: 1 },
+          { texto: 'Menos de un año', peso: 0 }
+        ]
+      },
+      {
+        icon: '👁️',
+        texto: '¿Notás que entrecerras los ojos para ver mejor de lejos?',
+        hint: 'Entrecerrar los ojos es una señal clásica de miopía no corregida o mal corregida.',
+        opciones: [
+          { texto: 'Sí, todo el tiempo', peso: 3 },
+          { texto: 'A veces, sobre todo de noche', peso: 2 },
+          { texto: 'Raramente', peso: 1 },
+          { texto: 'No, veo bien de lejos', peso: 0 }
+        ]
+      },
+      {
+        icon: '🤕',
+        texto: '¿Te duele la cabeza después de leer, estudiar o usar el celular?',
+        hint: 'El esfuerzo ocular excesivo puede causar dolores de cabeza frecuentes, especialmente frontales.',
+        opciones: [
+          { texto: 'Sí, seguido, es algo habitual para mí', peso: 3 },
+          { texto: 'Sí, algunas veces por semana', peso: 2 },
+          { texto: 'Pocas veces', peso: 1 },
+          { texto: 'No, nunca', peso: 0 }
+        ]
+      },
+      {
+        icon: '📏',
+        texto: '¿A qué distancia te cuesta más ver con nitidez?',
+        hint: 'Cada problema visual afecta de forma diferente según la distancia.',
+        opciones: [
+          { texto: 'De lejos (carteles, TV, pizarrón)', peso: 2, tag: 'miopía' },
+          { texto: 'De cerca (celular, libros, pantalla)', peso: 2, tag: 'presbicia o hipermetropía' },
+          { texto: 'En ambas distancias', peso: 3, tag: 'astigmatismo o combinado' },
+          { texto: 'Ninguna, veo bien en todas las distancias', peso: 0 }
+        ]
+      },
+      {
+        icon: '💡',
+        texto: '¿Te molestan las luces fuertes o de noche sentís que las luces se alargan o se estiran?',
+        hint: 'Ver "rayos" o "halos" alrededor de las luces es uno de los síntomas más característicos del astigmatismo.',
+        opciones: [
+          { texto: 'Sí, las luces de noche se alargan o tienen rayos', peso: 3, tag: 'posible astigmatismo' },
+          { texto: 'Me molestan las luces pero no se alargan', peso: 2 },
+          { texto: 'Un poco, no lo había notado mucho', peso: 1 },
+          { texto: 'No, veo las luces con normalidad', peso: 0 }
+        ]
+      },
+      {
+        icon: '👓',
+        texto: '¿Usás anteojos o lentes de contacto actualmente?',
+        hint: 'La graduación puede cambiar con el tiempo y los lentes necesitan actualizarse.',
+        opciones: [
+          { texto: 'Sí, pero siento que ya no me corrijo bien', peso: 3 },
+          { texto: 'Sí, y veo bastante bien con ellos', peso: 0 },
+          { texto: 'No uso ninguno', peso: 1 }
+        ]
+      },
+      {
+        icon: '🔢',
+        texto: '¿Tenés más de 40 años?',
+        hint: 'A partir de los 40, el cristalino pierde flexibilidad, lo que puede causar dificultad para leer de cerca (presbicia).',
+        opciones: [
+          { texto: 'Sí, tengo más de 40 años', peso: 2, tag: 'presbicia posible' },
+          { texto: 'No, tengo entre 18 y 40 años', peso: 0 },
+          { texto: 'Soy menor de 18 años', peso: 1 }
+        ]
+      }
+    ];
+
+    let preguntaActual = 0;
+    let puntajeTotal = 0;
+    let tagsDetectados = [];
+    let respuestas = [];
+
+    function renderPregunta() {
+      const q = preguntas[preguntaActual];
+      const total = preguntas.length;
+      const pct = Math.round((preguntaActual / total) * 100);
+
+      document.getElementById('currentQ').textContent = preguntaActual + 1;
+      document.getElementById('progressPct').textContent = pct + '%';
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('qNumber').innerHTML = `<i class="fas fa-circle-question"></i> Pregunta ${preguntaActual + 1}`;
+      document.getElementById('qIcon').textContent = q.icon;
+      document.getElementById('qText').textContent = q.texto;
+      document.getElementById('qHint').textContent = q.hint;
+
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+      const letras = ['A','B','C','D'];
+      q.opciones.forEach((op, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `<span class="option-letter">${letras[i]}</span><span class="option-text">${op.texto}</span>`;
+        btn.addEventListener('click', () => elegirOpcion(op, btn));
+        container.appendChild(btn);
+      });
+
+      // Animar la tarjeta
+      const card = document.getElementById('quizCard');
+      card.style.animation = 'none';
+      card.offsetHeight; // reflow
+      card.style.animation = 'slideIn 0.35s ease';
+    }
+
+    function elegirOpcion(opcion, btnEl) {
+      // Highlight seleccionado
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btnEl.classList.add('selected');
+
+      // Registrar
+      puntajeTotal += opcion.peso;
+      respuestas.push(opcion.peso);
+      if (opcion.tag) tagsDetectados.push(opcion.tag);
+
+      // Pequeña pausa antes de avanzar
+      setTimeout(() => {
+        preguntaActual++;
+        if (preguntaActual < preguntas.length) {
+          renderPregunta();
+        } else {
+          mostrarResultado();
+        }
+      }, 380);
+    }
+
+    function mostrarResultado() {
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressPct').textContent = '100%';
+      document.getElementById('currentQ').textContent = preguntas.length;
+
+      document.getElementById('quizCard').style.display = 'none';
+      const resultCard = document.getElementById('resultCard');
+      resultCard.style.display = 'block';
+
+      let nivel, titulo, desc, iconClass, waMsg;
+      const tags = [...new Set(tagsDetectados)];
+
+      if (puntajeTotal >= 10) {
+        nivel = 'high';
+        titulo = 'Tus respuestas sugieren que podrías necesitar una evaluación visual urgente';
+        desc = 'Varios de tus síntomas son señales de un problema de visión no corregido o mal corregido. Lo más probable es que ya tengas un defecto visual (miopía, astigmatismo, hipermetropía o presbicia) que con los lentes adecuados se resuelve fácilmente. No lo dejes pasar: cuanto antes te revisás, mejor calidad de vida tenés.';
+        iconClass = 'fas fa-triangle-exclamation';
+        waMsg = 'Hola Centro Óptico Santa Fe, hice el test de visión en su página y me salió que necesito una evaluación urgente. ¿Me podían decir cuándo me pueden atender?';
+
+      } else if (puntajeTotal >= 5) {
+        nivel = 'medium';
+        titulo = 'Tus respuestas muestran algunas señales que vale la pena revisar';
+        desc = 'No es una urgencia, pero sí hay señales que merecen atención. Problemas leves de visión no siempre se notan de forma clara, pero sí afectan tu descanso, tu rendimiento y tu calidad de vida. Una evaluación visual es rápida, gratuita y te deja tranquilo o te da la solución que necesitás.';
+        iconClass = 'fas fa-eye';
+        waMsg = 'Hola Centro Óptico Santa Fe, hice el test de visión en su página y me salió que tengo algunas señales para revisar. ¿Me podían dar más información?';
+
+      } else {
+        nivel = 'low';
+        titulo = 'Tu visión parece estar en buen estado por ahora';
+        desc = 'No mostrás señales claras de un problema visual grave. Aun así, te recomendamos una revisión anual para mantener tu salud ocular a largo plazo. Si en algún momento notás cambios, no lo dejes pasar.';
+        iconClass = 'fas fa-check-circle';
+        waMsg = 'Hola Centro Óptico Santa Fe, hice el test de visión en su página y me salió que estoy bien. ¿Cada cuánto me recomiendan una revisión de rutina?';
+      }
+
+      // Renderizar
+      const iconWrap = document.getElementById('resultIconWrap');
+      iconWrap.className = `result-icon-wrap ${nivel}`;
+      document.getElementById('resultIcon').className = iconClass;
+
+      const levelEl = document.getElementById('resultLevel');
+      levelEl.className = `result-level ${nivel}`;
+      levelEl.textContent = nivel === 'high' ? '⚠ Revisión recomendada' : nivel === 'medium' ? '👁 Chequeá tu visión' : '✓ Visión estable';
+
+      document.getElementById('resultTitle').textContent = titulo;
+      document.getElementById('resultDesc').textContent = desc;
+
+      const tagsContainer = document.getElementById('resultTags');
+      tagsContainer.innerHTML = '';
+      if (tags.length > 0) {
+        tags.forEach(tag => {
+          const t = document.createElement('span');
+          t.className = nivel === 'high' ? 'result-tag red' : 'result-tag';
+          t.innerHTML = `<i class="fas fa-circle-dot" style="font-size:0.65rem"></i> Posible ${tag}`;
+          tagsContainer.appendChild(t);
+        });
+      }
+      if (tags.length === 0) {
+        const t = document.createElement('span');
+        t.className = 'result-tag';
+        t.innerHTML = `<i class="fas fa-circle-dot" style="font-size:0.65rem"></i> Sin indicadores de alerta`;
+        tagsContainer.appendChild(t);
+      }
+
+      document.getElementById('waBtn').href = `https://wa.me/595973851449?text=${encodeURIComponent(waMsg)}`;
+
+      // GA4 evento resultado
+      gtag('event', 'quiz_completado', {
+        event_category: 'test_visual',
+        nivel_resultado: nivel,
+        puntaje: puntajeTotal
+      });
+    }
+
+    function reiniciarTest() {
+      preguntaActual = 0;
+      puntajeTotal = 0;
+      tagsDetectados = [];
+      respuestas = [];
+      document.getElementById('resultCard').style.display = 'none';
+      document.getElementById('quizCard').style.display = 'block';
+      renderPregunta();
+    }
+
+    // Iniciar
+    renderPregunta();
+  </script>
+
+</body>
+</html>

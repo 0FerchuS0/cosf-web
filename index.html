@@ -123,6 +123,7 @@
           <li><a href="/testimonios" class="nav-link">Testimonios</a></li>
           <li><a href="/galeria" class="nav-link">Galería</a></li>
           <li><a href="/contactenos" class="nav-link">Contacto</a></li>
+          <li><a href="/test-visual/" class="nav-link nav-link-test"><i class="fas fa-eye"></i> Test visual</a></li>
         </ul>
       </nav>
     </div>
@@ -143,8 +144,9 @@
              onclick="gtag('event','click_whatsapp',{event_category:'hero'})">
             <i class="fab fa-whatsapp"></i> Agendar por WhatsApp
           </a>
-          <a href="#ubicacion" class="btn btn-outline btn-lg">
-            <i class="fas fa-map-marker-alt"></i> Ver ubicación
+          <a href="/test-visual/" class="btn btn-outline btn-lg"
+             onclick="gtag('event','click_test_visual',{event_category:'hero'})">
+            <i class="fas fa-eye"></i> Test de visión gratuito
           </a>
         </div>
         <div class="hero-info">
@@ -474,6 +476,49 @@
              onclick="gtag('event','click_whatsapp',{event_category:'soluciones'})">
             <i class="fab fa-whatsapp"></i> Consultá cuál es el ideal para vos
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECCIÓN TEST VISUAL ===== -->
+  <section class="section test-visual-section" id="test-visual">
+    <div class="container">
+      <div class="test-visual-inner">
+        <div class="test-visual-left">
+          <span class="test-badge"><i class="fas fa-eye"></i> Test gratuito</span>
+          <h2 class="test-title">¿Tu visión está al 100%?</h2>
+          <p class="test-desc">Muchas personas tienen problemas de visión sin saberlo. Respondé 7 preguntas rápidas y descubrí si necesitás una evaluación visual profesional.</p>
+          <ul class="test-features">
+            <li><i class="fas fa-check-circle"></i> Solo 2 minutos</li>
+            <li><i class="fas fa-check-circle"></i> Totalmente gratuito</li>
+            <li><i class="fas fa-check-circle"></i> Resultado inmediato</li>
+            <li><i class="fas fa-check-circle"></i> Sin datos personales</li>
+          </ul>
+          <a href="/test-visual/" class="btn-test-visual"
+             onclick="gtag('event','click_test_visual',{event_category:'seccion_mid'})">
+            <i class="fas fa-eye"></i>
+            <div>
+              <strong>Descubrí si tu visión está bien</strong>
+              <span>Test gratuito · 2 minutos</span>
+            </div>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="test-visual-right">
+          <div class="test-preview-card">
+            <div class="preview-q">
+              <span class="preview-q-num">Pregunta de ejemplo</span>
+              <p>¿Notás que entrecerras los ojos para ver mejor de lejos?</p>
+            </div>
+            <div class="preview-options">
+              <div class="preview-opt preview-opt-selected"><span>A</span> Sí, todo el tiempo</div>
+              <div class="preview-opt"><span>B</span> A veces, sobre todo de noche</div>
+              <div class="preview-opt"><span>C</span> Raramente</div>
+              <div class="preview-opt"><span>D</span> No, veo bien de lejos</div>
+            </div>
+            <div class="preview-tag">Posible señal de <strong>miopía</strong></div>
+          </div>
         </div>
       </div>
     </div>
