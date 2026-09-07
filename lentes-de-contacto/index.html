@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Sos Candidato/a para Lentes de Contacto? | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <link rel="canonical" href="https://centro-optico-santafe.netlify.app/lentes-de-contacto/" />
+  <meta name="description" content="Descubrí en 1 minuto si sos candidato/a para lentes de contacto. Test gratuito + gabinete propio de contactología en Ciudad del Este, Paraguay." />
+  <meta property="og:title" content="¿Sos Candidato/a para Lentes de Contacto? | Centro Óptico Santa Fe" />
+  <meta property="og:description" content="Test gratuito de 1 minuto. Gabinete propio de contactología con adaptación y seguimiento profesional." />
+  <meta property="og:url" content="https://centro-optico-santafe.netlify.app/lentes-de-contacto/" />
+  <meta property="og:image" content="https://centro-optico-santafe.netlify.app/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF9F70N90P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CF9F70N90P');
+    gtag('event', 'page_view_lentes_contacto', { event_category: 'quiz_funnel' });
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1B4F9C;
+      --dark-blue: #143d7a;
+      --red: #C0392B;
+      --green: #25D366;
+      --bg: #f0f4ff;
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: #1e293b; min-height: 100vh; }
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER */
+    .header { background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,0.08); padding: 0 1.25rem; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 960px; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 40px; width: auto; }
+    .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; color: var(--blue); font-weight: 600; }
+    .back-link:hover { text-decoration: underline; }
+
+    /* HERO */
+    .quiz-hero { background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%); color: #fff; text-align: center; padding: 2.5rem 1.25rem 3.5rem; position: relative; overflow: hidden; }
+    .quiz-hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 60px; background: var(--bg); clip-path: ellipse(55% 100% at 50% 100%); }
+    .quiz-hero .badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 0.35rem 1rem; font-size: 0.82rem; font-weight: 600; margin-bottom: 1.1rem; backdrop-filter: blur(4px); }
+    .quiz-hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 0.75rem; line-height: 1.2; }
+    .quiz-hero p { font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 520px; margin: 0 auto; }
+    .quiz-meta { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.25rem; flex-wrap: wrap; }
+    .quiz-meta span { display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .quiz-meta i { color: #93c5fd; }
+
+    .quiz-wrap { max-width: 640px; margin: 0 auto; padding: 0 1.25rem 4rem; margin-top: -1.5rem; position: relative; z-index: 1; }
+
+    .progress-bar-wrap { background: #fff; border-radius: 16px; padding: 1.25rem 1.5rem 1rem; box-shadow: 0 2px 16px rgba(27,79,156,0.1); margin-bottom: 1.25rem; }
+    .progress-labels { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+    .progress-labels span { font-size: 0.82rem; color: #64748b; font-weight: 500; }
+    .progress-labels strong { font-size: 0.88rem; color: var(--blue); font-weight: 700; }
+    .progress-track { height: 8px; background: #e2e8f0; border-radius: 50px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), #3b82f6); border-radius: 50px; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); width: 0%; }
+
+    .question-card { background: #fff; border-radius: 20px; padding: 2rem 1.75rem; box-shadow: 0 4px 24px rgba(27,79,156,0.1); animation: slideIn 0.35s ease; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    .question-number { display: inline-flex; align-items: center; gap: 0.4rem; background: #eff6ff; color: var(--blue); border-radius: 50px; padding: 0.3rem 0.9rem; font-size: 0.78rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .question-icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+    .question-text { font-family: 'Poppins', sans-serif; font-size: clamp(1.05rem, 2.5vw, 1.25rem); font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35; }
+    .question-hint { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; line-height: 1.5; }
+
+    .options { display: flex; flex-direction: column; gap: 0.75rem; }
+    .option-btn { display: flex; align-items: center; gap: 1rem; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 14px; padding: 1rem 1.25rem; cursor: pointer; transition: all 0.2s ease; text-align: left; width: 100%; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #1e293b; font-weight: 500; position: relative; overflow: hidden; }
+    .option-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #eff6ff, #dbeafe); opacity: 0; transition: opacity 0.2s; }
+    .option-btn:hover { border-color: var(--blue); transform: translateX(4px); }
+    .option-btn:hover::before { opacity: 1; }
+    .option-btn:hover .option-letter { background: var(--blue); color: #fff; }
+    .option-btn.selected { border-color: var(--blue); background: #eff6ff; }
+    .option-btn.selected .option-letter { background: var(--blue); color: #fff; }
+    .option-letter { width: 34px; height: 34px; min-width: 34px; background: #e2e8f0; color: #64748b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.82rem; transition: all 0.2s; position: relative; z-index: 1; }
+    .option-text { position: relative; z-index: 1; line-height: 1.4; }
+
+    .result-card { background: #fff; border-radius: 20px; padding: 2.25rem 1.75rem; box-shadow: 0 4px 24px rgba(27,79,156,0.1); text-align: center; animation: slideIn 0.4s ease; display: none; }
+    .result-icon-wrap { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.25rem; }
+    .result-icon-wrap.high { background: #f0fdf4; color: #16a34a; }
+    .result-icon-wrap.medium { background: #fffbeb; color: #d97706; }
+    .result-icon-wrap.low { background: #eff6ff; color: var(--blue); }
+
+    .result-level { display: inline-block; border-radius: 50px; padding: 0.3rem 1rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+    .result-level.high { background: #f0fdf4; color: #16a34a; }
+    .result-level.medium { background: #fffbeb; color: #d97706; }
+    .result-level.low { background: #eff6ff; color: var(--blue); }
+
+    .result-title { font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem; line-height: 1.3; }
+    .result-desc { font-size: 0.96rem; color: #475569; line-height: 1.65; margin-bottom: 1.25rem; }
+
+    .result-gabinete { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 14px; padding: 1rem 1.25rem; text-align: left; margin-bottom: 1.5rem; display: flex; gap: 0.75rem; align-items: flex-start; }
+    .result-gabinete i { color: var(--blue); font-size: 1.1rem; margin-top: 0.1rem; }
+    .result-gabinete p { font-size: 0.83rem; color: #1e40af; line-height: 1.55; margin: 0; }
+
+    .btn-wa-result { display: flex; align-items: center; justify-content: center; gap: 0.6rem; background: var(--green); color: #fff; padding: 1rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; width: 100%; transition: background 0.2s, transform 0.2s; margin-bottom: 0.75rem; }
+    .btn-wa-result:hover { background: #1da851; transform: translateY(-2px); }
+
+    .btn-repeat { display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: var(--blue); font-size: 0.88rem; font-weight: 600; cursor: pointer; background: none; border: none; font-family: 'Inter', sans-serif; margin: 0 auto; }
+    .btn-repeat:hover { text-decoration: underline; }
+
+    .disclaimer { font-size: 0.75rem; color: #94a3b8; margin-top: 1.25rem; line-height: 1.5; text-align: center; }
+
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: var(--green); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; z-index: 999; }
+    .wa-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 480px) {
+      .question-card, .result-card { padding: 1.5rem 1.25rem; }
+      .quiz-meta { gap: 1rem; }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1525850512886959');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="/">
+        <img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" />
+      </a>
+      <a href="/" class="back-link">
+        <i class="fas fa-arrow-left"></i> Volver al inicio
+      </a>
+    </div>
+  </header>
+
+  <section class="quiz-hero">
+    <div class="badge"><i class="fas fa-circle-dot"></i> Test gratuito de contactología</div>
+    <h1>¿Sos candidato/a para lentes de contacto?</h1>
+    <p>Respondé 7 preguntas rápidas y descubrí si podés usar lentes de contacto y qué tipo se adapta mejor a vos.</p>
+    <div class="quiz-meta">
+      <span><i class="fas fa-clock"></i> Solo 1 minuto</span>
+      <span><i class="fas fa-shield-halved"></i> Totalmente gratuito</span>
+      <span><i class="fas fa-user-doctor"></i> Gabinete propio de contactología</span>
+    </div>
+  </section>
+
+  <div class="quiz-wrap">
+
+    <!-- BARRA DE PROGRESO -->
+    <div class="progress-bar-wrap">
+      <div class="progress-labels">
+        <span>Pregunta <strong id="currentQ">1</strong> de <span id="totalQ">7</span></span>
+        <strong id="progressPct">0%</strong>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- PREGUNTAS -->
+    <div class="question-card" id="quizCard">
+      <span class="question-number" id="qNumber"><i class="fas fa-circle-question"></i> Pregunta 1</span>
+      <span class="question-icon" id="qIcon">👓</span>
+      <p class="question-text" id="qText"></p>
+      <p class="question-hint" id="qHint"></p>
+      <div class="options" id="optionsContainer"></div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="result-card" id="resultCard">
+      <div class="result-icon-wrap" id="resultIconWrap">
+        <i class="fas fa-circle-dot" id="resultIcon"></i>
+      </div>
+      <span class="result-level" id="resultLevel"></span>
+      <h2 class="result-title" id="resultTitle"></h2>
+      <p class="result-desc" id="resultDesc"></p>
+      <div class="result-gabinete">
+        <i class="fas fa-house-medical"></i>
+        <p>Contamos con <strong>gabinete propio de contactología</strong>: ahí evaluamos tu ojo, te dejamos probar el lente y te enseñamos a colocarlo y cuidarlo antes de decidir.</p>
+      </div>
+      <a href="#" class="btn-wa-result" id="waBtn" target="_blank" rel="noopener"
+         onclick="gtag('event','click_whatsapp',{event_category:'lentes_contacto_resultado'})">
+        <i class="fab fa-whatsapp"></i> Coordinar consulta de contactología
+      </a>
+      <button class="btn-repeat" onclick="reiniciarTest()">
+        <i class="fas fa-rotate-left"></i> Repetir el test
+      </button>
+      <p class="disclaimer">* Este test es orientativo. La adaptación final de lentes de contacto siempre requiere una evaluación profesional en nuestro gabinete de contactología.</p>
+    </div>
+
+  </div>
+
+  <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20consultar%20sobre%20lentes%20de%20contacto"
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const preguntas = [
+      {
+        icon: '👓',
+        texto: '¿Usás actualmente anteojos?',
+        hint: 'Esto nos ayuda a entender tu punto de partida.',
+        opciones: [
+          { texto: 'Sí, uso anteojos todos los días', peso: 1 },
+          { texto: 'Sí, pero solo para algunas actividades', peso: 1 },
+          { texto: 'No, nunca usé', peso: 0 }
+        ]
+      },
+      {
+        icon: '🏃',
+        texto: '¿Hacés deporte o actividad física con frecuencia?',
+        hint: 'Los lentes de contacto son muy prácticos para quienes tienen vida activa.',
+        opciones: [
+          { texto: 'Sí, varias veces por semana', peso: 2, tag: 'estilo de vida activo' },
+          { texto: 'A veces', peso: 1 },
+          { texto: 'No, casi no hago deporte', peso: 0 }
+        ]
+      },
+      {
+        icon: '💧',
+        texto: '¿Sentís los ojos secos o irritados con frecuencia?',
+        hint: 'La sequedad ocular influye en qué tipo de lente conviene usar.',
+        opciones: [
+          { texto: 'Sí, bastante seguido', peso: 1, tag: 'evaluar salud ocular primero' },
+          { texto: 'A veces', peso: 2 },
+          { texto: 'No, casi nunca', peso: 3 }
+        ]
+      },
+      {
+        icon: '👁️',
+        texto: '¿Sabés si tenés astigmatismo?',
+        hint: 'Hoy existen lentes de contacto tóricos diseñados específicamente para astigmatismo.',
+        opciones: [
+          { texto: 'Sí, tengo astigmatismo', peso: 2, tag: 'lente tórico' },
+          { texto: 'No tengo astigmatismo', peso: 2 },
+          { texto: 'No lo sé', peso: 1, tag: 'evaluación necesaria' }
+        ]
+      },
+      {
+        icon: '🔢',
+        texto: '¿Tenés más de 40 años?',
+        hint: 'A partir de los 40 puede aparecer presbicia, que también tiene solución con lentes de contacto multifocales.',
+        opciones: [
+          { texto: 'Sí, tengo más de 40 años', peso: 2, tag: 'lente multifocal' },
+          { texto: 'No, tengo entre 18 y 40 años', peso: 3 },
+          { texto: 'Soy menor de 18 años', peso: 1, tag: 'evaluación pediátrica' }
+        ]
+      },
+      {
+        icon: '🧴',
+        texto: '¿Te sentís cómodo/a con la idea de tocarte el ojo para colocar y retirar el lente?',
+        hint: 'Con la técnica correcta, esto se vuelve algo simple y rápido en pocos días.',
+        opciones: [
+          { texto: 'Sí, sin problema', peso: 3 },
+          { texto: 'Un poco de duda, pero estoy dispuesto/a a aprender', peso: 2 },
+          { texto: 'Me da bastante miedo o inseguridad', peso: 1 }
+        ]
+      },
+      {
+        icon: '🎨',
+        texto: '¿Te interesaría la opción de lentes de contacto de color?',
+        hint: 'Además de corregir tu visión, hoy existen lentes de contacto cosméticos para cambiar o realzar el color de tus ojos.',
+        opciones: [
+          { texto: 'Sí, me encantaría probar un cambio de color', peso: 2, tag: 'interesado en lentes de color' },
+          { texto: 'Tal vez, si se ve bien natural', peso: 2, tag: 'interesado en lentes de color natural' },
+          { texto: 'No, solo me interesa la corrección visual', peso: 2 }
+        ]
+      }
+    ];
+
+    let preguntaActual = 0;
+    let puntajeTotal = 0;
+    let tagsDetectados = [];
+
+    function renderPregunta() {
+      const q = preguntas[preguntaActual];
+      const total = preguntas.length;
+      const pct = Math.round((preguntaActual / total) * 100);
+
+      document.getElementById('currentQ').textContent = preguntaActual + 1;
+      document.getElementById('progressPct').textContent = pct + '%';
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('qNumber').innerHTML = `<i class="fas fa-circle-question"></i> Pregunta ${preguntaActual + 1}`;
+      document.getElementById('qIcon').textContent = q.icon;
+      document.getElementById('qText').textContent = q.texto;
+      document.getElementById('qHint').textContent = q.hint;
+
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+      const letras = ['A','B','C','D'];
+      q.opciones.forEach((op, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `<span class="option-letter">${letras[i]}</span><span class="option-text">${op.texto}</span>`;
+        btn.addEventListener('click', () => elegirOpcion(op, btn));
+        container.appendChild(btn);
+      });
+
+      const card = document.getElementById('quizCard');
+      card.style.animation = 'none';
+      card.offsetHeight;
+      card.style.animation = 'slideIn 0.35s ease';
+    }
+
+    function elegirOpcion(opcion, btnEl) {
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btnEl.classList.add('selected');
+
+      puntajeTotal += opcion.peso;
+      if (opcion.tag) tagsDetectados.push(opcion.tag);
+
+      setTimeout(() => {
+        preguntaActual++;
+        if (preguntaActual < preguntas.length) {
+          renderPregunta();
+        } else {
+          mostrarResultado();
+        }
+      }, 380);
+    }
+
+    function mostrarResultado() {
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressPct').textContent = '100%';
+      document.getElementById('currentQ').textContent = preguntas.length;
+
+      document.getElementById('quizCard').style.display = 'none';
+      const resultCard = document.getElementById('resultCard');
+      resultCard.style.display = 'block';
+
+      let nivel, titulo, desc, iconClass, waMsg;
+      const puntajeMax = 18;
+
+      if (puntajeTotal >= 14) {
+        nivel = 'high';
+        titulo = '¡Sos un/a excelente candidato/a para lentes de contacto!';
+        desc = 'Tus respuestas indican que tenés un buen perfil para adaptarte fácilmente a los lentes de contacto. Te recomendamos coordinar una consulta en nuestro gabinete de contactología para evaluar tu ojo y elegir el tipo de lente ideal para vos.';
+        iconClass = 'fas fa-face-smile-beam';
+        waMsg = 'Hola Centro Óptico Santa Fe, hice el test de contactología en su página y me salió que soy un buen candidato/a para lentes de contacto. Quiero coordinar una consulta.';
+      } else if (puntajeTotal >= 8) {
+        nivel = 'medium';
+        titulo = 'Podrías usar lentes de contacto, con una evaluación previa';
+        desc = 'Tus respuestas muestran que los lentes de contacto son una opción viable para vos, aunque conviene evaluar algunos puntos en nuestro gabinete de contactología antes de decidir el tipo exacto de lente.';
+        iconClass = 'fas fa-circle-dot';
+        waMsg = 'Hola Centro Óptico Santa Fe, hice el test de contactología en su página y quiero coordinar una consulta para evaluar si puedo usar lentes de contacto.';
+      } else {
+        nivel = 'low';
+        titulo = 'Tu caso necesita una evaluación más detallada';
+        desc = 'No hay ningún impedimento para explorar la opción, pero por tus respuestas conviene que lo veamos en persona en nuestro gabinete de contactología antes de avanzar, para asegurarnos de elegir la mejor solución para vos.';
+        iconClass = 'fas fa-user-doctor';
+        waMsg = 'Hola Centro Óptico Santa Fe, hice el test de contactología en su página y quiero que evalúen mi caso para saber si puedo usar lentes de contacto.';
+      }
+
+      const iconWrap = document.getElementById('resultIconWrap');
+      iconWrap.className = `result-icon-wrap ${nivel}`;
+      document.getElementById('resultIcon').className = iconClass;
+
+      const levelEl = document.getElementById('resultLevel');
+      levelEl.className = `result-level ${nivel}`;
+      levelEl.textContent = nivel === 'high' ? '✓ Muy buen candidato/a' : nivel === 'medium' ? '● Candidato/a viable' : '👁 Evaluación recomendada';
+
+      document.getElementById('resultTitle').textContent = titulo;
+      document.getElementById('resultDesc').textContent = desc;
+
+      document.getElementById('waBtn').href = `https://wa.me/595973851449?text=${encodeURIComponent(waMsg)}`;
+
+      gtag('event', 'quiz_completado', {
+        event_category: 'lentes_contacto',
+        nivel_resultado: nivel,
+        puntaje: puntajeTotal
+      });
+    }
+
+    function reiniciarTest() {
+      preguntaActual = 0;
+      puntajeTotal = 0;
+      tagsDetectados = [];
+      document.getElementById('resultCard').style.display = 'none';
+      document.getElementById('quizCard').style.display = 'block';
+      renderPregunta();
+    }
+
+    renderPregunta();
+  </script>
+
+</body>
+</html>

@@ -82,6 +82,25 @@
     }
     .notice i { font-size: 1.2rem; flex-shrink: 0; }
 
+    .subsection-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .subsection-title i { color: #1B4F9C; font-size: 1.1rem; }
+    .subsection-sub {
+      font-size: 0.88rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      max-width: 560px;
+    }
+    .section-block { margin-bottom: 3rem; }
+
     /* GRID DE FOTOS */
     .photo-grid {
       display: grid;
@@ -194,6 +213,23 @@
       .photo-item.wide { grid-column: span 1; aspect-ratio: 1/1; }
     }
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1525850512886959');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -220,44 +256,121 @@
       <span>Conocé nuestro espacio y la variedad de lentes que tenemos. Seguinos también en Instagram <strong>@cosf_cde</strong> para ver las últimas novedades.</span>
     </div>
 
-    <!-- GRILLA DE FOTOS
-         Para agregar fotos reales, reemplazá cada <div class="photo-placeholder"> por:
-         <img src="/assets/galeria/nombre-foto.jpg" alt="descripción" />
-         Y copiá las fotos a la carpeta C:\COSF_Web\assets\galeria\
-    -->
-    <div class="photo-grid">
+    <!-- ARMAZONES EN TENDENCIA -->
+    <div class="section-block">
+      <h2 class="subsection-title"><i class="fas fa-glasses"></i> Armazones en tendencia</h2>
+      <p class="subsection-sub">Un adelanto de los estilos que están marcando tendencia esta temporada: monturas redondas, cat-eye, metálicas y minimalistas. Consultanos disponibilidad y precios por WhatsApp.</p>
+      <div class="photo-grid">
 
-      <div class="photo-item wide">
-        <img src="/assets/galeria/foto1-local.jpg" alt="Centro Óptico Santa Fe - Óptica profesional" loading="lazy" />
-        <div class="photo-overlay"><span class="photo-label">Óptica profesional</span></div>
+        <div class="photo-item wide">
+          <img src="/assets/galeria/tendencias/armazon-1-diverso.jpg" alt="Variedad de estilos de armazones en tendencia" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Estilos variados</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/tendencias/armazon-2-amarillo.jpg" alt="Colección de armazones modernos" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Colección moderna</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/tendencias/armazon-3-minimalista.jpg" alt="Armazón minimalista elegante" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Estilo minimalista</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/tendencias/armazon-4-rectangular.jpg" alt="Armazón rectangular de tendencia" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Rectangular</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/tendencias/armazon-5-chic.jpg" alt="Armazón chic en exhibición" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Chic</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/tendencias/armazon-6-moderno.jpg" alt="Armazón de diseño moderno" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Diseño moderno</span></div>
+        </div>
+
+        <div class="photo-item wide">
+          <img src="/assets/galeria/tendencias/armazon-7-elegante.jpg" alt="Armazón elegante en exhibición" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Elegante</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/tendencias/armazon-8-variedad.jpg" alt="Amplia variedad de armazones" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Amplia variedad</span></div>
+        </div>
+
       </div>
+    </div>
 
-      <div class="photo-item">
-        <img src="/assets/galeria/foto2-armazones.jpg" alt="Armazones oftálmicos - Centro Óptico Santa Fe" loading="lazy" />
-        <div class="photo-overlay"><span class="photo-label">Armazones oftálmicos</span></div>
+    <!-- NUESTRA OPTICA -->
+    <div class="section-block">
+      <h2 class="subsection-title"><i class="fas fa-store"></i> Nuestra óptica</h2>
+      <p class="subsection-sub">Un espacio pensado para que elijas tus lentes con tranquilidad y buena atención profesional.</p>
+      <div class="photo-grid">
+
+        <div class="photo-item wide">
+          <img src="/assets/galeria/opticas/optica-3-moderna.jpg" alt="Interior moderno de óptica" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Espacio moderno</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/opticas/optica-1-vidriera.jpg" alt="Vidriera de exhibición de lentes" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Vidriera</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/opticas/optica-2-exhibicion.jpg" alt="Exhibidor de lentes en óptica" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Exhibición</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/opticas/optica-4-atencion.jpg" alt="Atención profesional en óptica" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Atención profesional</span></div>
+        </div>
+
       </div>
+    </div>
 
-      <div class="photo-item">
-        <img src="/assets/galeria/foto3-sol.jpg" alt="Lentes de sol - Centro Óptico Santa Fe" loading="lazy" />
-        <div class="photo-overlay"><span class="photo-label">Lentes de sol</span></div>
+    <!-- GALERIA ORIGINAL DEL LOCAL -->
+    <div class="section-block">
+      <h2 class="subsection-title"><i class="fas fa-images"></i> Nuestro local y trabajo diario</h2>
+      <div class="photo-grid">
+
+        <div class="photo-item wide">
+          <img src="/assets/galeria/foto1-local.jpg" alt="Centro Óptico Santa Fe - Óptica profesional" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Óptica profesional</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/foto2-armazones.jpg" alt="Armazones oftálmicos - Centro Óptico Santa Fe" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Armazones oftálmicos</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/foto3-sol.jpg" alt="Lentes de sol - Centro Óptico Santa Fe" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Lentes de sol</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/foto4-oftalmicos.jpg" alt="Lentes oftálmicos - Centro Óptico Santa Fe" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Lentes oftálmicos</span></div>
+        </div>
+
+        <div class="photo-item">
+          <img src="/assets/galeria/foto5-variedad.jpg" alt="Variedad de armazones - Centro Óptico Santa Fe" loading="lazy" />
+          <div class="photo-overlay"><span class="photo-label">Amplia variedad</span></div>
+        </div>
+
       </div>
-
-      <div class="photo-item">
-        <img src="/assets/galeria/foto4-oftalmicos.jpg" alt="Lentes oftálmicos - Centro Óptico Santa Fe" loading="lazy" />
-        <div class="photo-overlay"><span class="photo-label">Lentes oftálmicos</span></div>
-      </div>
-
-      <div class="photo-item">
-        <img src="/assets/galeria/foto5-variedad.jpg" alt="Variedad de armazones - Centro Óptico Santa Fe" loading="lazy" />
-        <div class="photo-overlay"><span class="photo-label">Amplia variedad</span></div>
-      </div>
-
     </div>
 
     <div class="upload-guide">
       <i class="fas fa-images"></i>
       <h3>¿Querés actualizar las fotos?</h3>
-      <p>Guardá tus fotos en <code>C:\COSF_Web\assets\galeria\</code> y avisame para actualizarlas en la página automáticamente.</p>
+      <p>Guardá tus fotos reales en <code>C:\COSF_Web\assets\galeria\</code> (o en las subcarpetas <code>tendencias</code> / <code>opticas</code>) y avisame para reemplazarlas por las tuyas cuando quieras.</p>
     </div>
 
     <div class="instagram-cta">

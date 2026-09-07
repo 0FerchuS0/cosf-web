@@ -83,6 +83,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="styles.css" />
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1525850512886959');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -122,6 +139,7 @@
           <li><a href="/acerca-de-nosotros" class="nav-link">Nosotros</a></li>
           <li><a href="/testimonios" class="nav-link">Testimonios</a></li>
           <li><a href="/galeria" class="nav-link">Galería</a></li>
+          <li><a href="/contactologia" class="nav-link">Contactología</a></li>
           <li><a href="/contactenos" class="nav-link">Contacto</a></li>
           <li><a href="/test-visual/" class="nav-link nav-link-test"><i class="fas fa-eye"></i> Test visual</a></li>
         </ul>
@@ -134,20 +152,28 @@
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <div class="hero-text">
-        <span class="hero-badge">Óptica profesional en Ciudad del Este</span>
+        <div class="hero-badge-row">
+          <span class="hero-badge">Óptica profesional en Ciudad del Este</span>
+        </div>
         <h1 class="hero-title">Cuidamos tu visión con atención profesional y lentes de calidad</h1>
         <p class="hero-subtitle">En Centro Óptico Santa Fe te ayudamos a encontrar la mejor solución visual, con asesoramiento personalizado, controles visuales y lentes adaptados a tus necesidades.</p>
         <div class="hero-buttons">
           <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
-             class="btn btn-whatsapp btn-lg"
+             class="btn btn-whatsapp"
              target="_blank" rel="noopener"
              onclick="gtag('event','click_whatsapp',{event_category:'hero'})">
             <i class="fab fa-whatsapp"></i> Agendar por WhatsApp
           </a>
-          <a href="/test-visual/" class="btn btn-outline btn-lg"
+          <a href="/test-visual/" class="btn btn-outline"
              onclick="gtag('event','click_test_visual',{event_category:'hero'})">
             <i class="fas fa-eye"></i> Test de visión gratuito
           </a>
+          <div class="hero-buttons-cl-row">
+            <a href="/contactologia" class="btn btn-contactologia"
+               onclick="gtag('event','click_contactologia',{event_category:'hero'})">
+              <i class="fas fa-circle-dot"></i> Gabinete de contactología
+            </a>
+          </div>
         </div>
         <div class="hero-info">
           <span><i class="fas fa-clock"></i> Lun–Vie 08:00–12:00 y 14:00–17:00</span>
@@ -175,6 +201,10 @@
             <span class="card-dot-live"></span>
             <i class="fas fa-clock"></i>
             <span>Atención 24hs</span>
+          </div>
+          <div class="hero-card-float card-5">
+            <i class="fas fa-circle-dot"></i>
+            <span>Gabinete de contactología</span>
           </div>
         </div>
       </div>
@@ -275,6 +305,7 @@
           </div>
           <h3>Lentes de contacto</h3>
           <p>Asesoramiento y adaptación de lentes de contacto blandos, tóricos y multifocales según tu necesidad.</p>
+          <a href="/contactologia" style="display:inline-flex;align-items:center;gap:0.35rem;margin-top:0.75rem;font-size:0.85rem;font-weight:700;color:#1B4F9C" onclick="gtag('event','click_contactologia',{event_category:'servicios'})">Conocé nuestro gabinete de contactología <i class="fas fa-arrow-right" style="font-size:0.75rem"></i></a>
         </div>
 
         <div class="service-card">
@@ -481,6 +512,42 @@
     </div>
   </section>
 
+  <!-- ===== SECCIÓN CONTACTOLOGÍA DESTACADA ===== -->
+  <section class="section cl-section" id="contactologia-destacado">
+    <div class="container">
+      <div class="cl-inner">
+        <div class="cl-img-wrap">
+          <img src="/assets/contactologia/gabinete-consulta.jpg" alt="Gabinete de contactología - Centro Óptico Santa Fe" loading="lazy" />
+          <div class="cl-img-badge"><i class="fas fa-house-medical"></i> Gabinete propio</div>
+        </div>
+        <div class="cl-content">
+          <span class="cl-badge"><i class="fas fa-circle-dot"></i> Servicio especializado</span>
+          <h2 class="cl-title">¿Necesitás lentes de contacto?</h2>
+          <p class="cl-desc">Contamos con un <strong>gabinete propio de contactología</strong>: un espacio dedicado exclusivamente a evaluar tu ojo, dejarte probar el lente y enseñarte a usarlo antes de decidir. No es una venta genérica, es una adaptación profesional.</p>
+          <ul class="cl-features">
+            <li><i class="fas fa-check-circle"></i> Blandos, tóricos y multifocales</li>
+            <li><i class="fas fa-check-circle"></i> Prueba antes de decidir</li>
+            <li><i class="fas fa-check-circle"></i> Seguimiento incluido</li>
+            <li><i class="fas fa-check-circle"></i> Atención profesional</li>
+          </ul>
+          <div class="cl-actions">
+            <a href="/contactologia" class="btn-cl-primary" onclick="gtag('event','click_contactologia',{event_category:'seccion_home'})">
+              <i class="fas fa-circle-dot"></i>
+              <div>
+                <strong>Conocé el gabinete de contactología</strong>
+                <span>Adaptación y seguimiento profesional</span>
+              </div>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="/lentes-de-contacto/" class="btn-cl-secondary" onclick="gtag('event','click_test_contactologia',{event_category:'seccion_home'})">
+              <i class="fas fa-clipboard-question"></i> Test: ¿sos candidato/a?
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SECCIÓN TEST VISUAL ===== -->
   <section class="section test-visual-section" id="test-visual">
     <div class="container">
@@ -681,6 +748,7 @@
           <li><a href="/acerca-de-nosotros">Acerca de nosotros</a></li>
           <li><a href="/testimonios">Testimonios</a></li>
           <li><a href="/galeria">Galería de fotos</a></li>
+          <li><a href="/contactologia">Contactología</a></li>
           <li><a href="/contactenos">Contáctenos</a></li>
         </ul>
       </div>
@@ -817,6 +885,12 @@
           <h3>Contáctenos</h3>
           <p>WhatsApp, Instagram y horarios de atención</p>
           <span class="quick-link">Ver contacto <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="/contactologia" class="quick-card">
+          <div class="quick-icon" style="background:#dbeafe;color:#1B4F9C"><i class="fas fa-circle-dot"></i></div>
+          <h3>Contactología</h3>
+          <p>Gabinete propio para adaptación de lentes de contacto</p>
+          <span class="quick-link">Ver contactología <i class="fas fa-arrow-right"></i></span>
         </a>
       </div>
     </div>
