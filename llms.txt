@@ -17,6 +17,14 @@ Sitio web: https://centro-optico-santafe.netlify.app
 - Asesoramiento en elección de armazones
 - Medidas ópticas personalizadas
 
+## Lentes multifocales / progresivos digitales
+Página detallada: https://centro-optico-santafe.netlify.app/lentes-multifocales/
+- Medición con equipos digitales: sistema de centrado con tablet y medidor nasopupilar digital
+- Diseño de campo de visión personalizado (progresivos digitales / FreeForm) según receta y actividad diaria de cada paciente
+- Marcas disponibles: Prime (laboratorio óptico con tecnología de punta de América Latina, instalado en Paraguay), Kodak, Varilux Confort (Essilor)
+- Precio del par: desde Gs. 500.000 hasta Gs. 3.800.000 según diseño de campo de visión, marca y tratamientos; cotización exacta requiere pasar por la óptica (medición personalizada)
+- Plazo de fabricación y garantía de adaptación: se confirman en la consulta según marca y diseño elegido
+
 ## Horarios
 Lunes a Viernes: 08:00–12:00 y 14:00–17:00
 Sábado y Domingo: Cerrado
