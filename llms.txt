@@ -5,7 +5,7 @@ Centro Óptico Santa Fe es una óptica profesional ubicada en Ciudad del Este, P
 Dirección: Blas Garay 1149 c/ Avda. San José, Barrio San Isidro, Ciudad del Este, Alto Paraná, Paraguay.
 Teléfono / WhatsApp: +595 973 851 449
 Instagram: @cosf_cde
-Sitio web: https://centro-optico-santafe.netlify.app
+Sitio web: https://centroopticosantafe.com
 
 ## Servicios
 - Consulta visual y medición de agudeza visual
@@ -18,7 +18,7 @@ Sitio web: https://centro-optico-santafe.netlify.app
 - Medidas ópticas personalizadas
 
 ## Lentes multifocales / progresivos digitales
-Página detallada: https://centro-optico-santafe.netlify.app/lentes-multifocales/
+Página detallada: https://centroopticosantafe.com/lentes-multifocales/
 - Medición con equipos digitales: sistema de centrado con tablet y medidor nasopupilar digital
 - Diseño de campo de visión personalizado (progresivos digitales / FreeForm) según receta y actividad diaria de cada paciente
 - Marcas disponibles: Prime (laboratorio óptico con tecnología de punta de América Latina, instalado en Paraguay), Kodak, Varilux Confort (Essilor)
