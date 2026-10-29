@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contactología | Lentes de Contacto en Ciudad del Este - Centro Óptico Santa Fe</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://centro-optico-santafe.netlify.app/contactologia/" />
   <meta property="og:title" content="Contactología | Centro Óptico Santa Fe" />
   <meta property="og:description" content="Gabinete propio de contactología en Ciudad del Este. Adaptación de lentes de contacto blandos, tóricos y multifocales con seguimiento profesional." />
@@ -25,8 +28,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,8 +40,8 @@
     .header { background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,0.08); padding: 0 1.25rem; position: sticky; top: 0; z-index: 100; }
     .header-inner { max-width: 1100px; margin: 0 auto; height: 68px; display: flex; align-items: center; justify-content: space-between; }
     .logo-img { height: 44px; width: auto; }
-    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
-    .btn-wa:hover { background: #1da851; }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: #0F7F44; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    .btn-wa:hover { background: #0B6A38; }
 
     /* HERO */
     .hero {
@@ -64,8 +68,8 @@
     .hero-img { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
     .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4/3; }
 
-    .btn-hero-wa { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 0.95rem 1.75rem; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
-    .btn-hero-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.4); }
+    .btn-hero-wa { display: inline-flex; align-items: center; gap: 0.6rem; background: #0F7F44; color: #fff; padding: 0.95rem 1.75rem; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
+    .btn-hero-wa:hover { background: #0B6A38; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15,127,68,0.4); }
 
     .section { max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.25rem; }
     .section-head { text-align: center; max-width: 620px; margin: 0 auto 2.5rem; }
@@ -121,8 +125,8 @@
     .cta-box { background: linear-gradient(135deg, #0f172a, #143d7a); border-radius: 20px; padding: 2.75rem 2rem; text-align: center; color: #fff; }
     .cta-box h2 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.6rem; }
     .cta-box p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 1.75rem; max-width: 480px; margin-left: auto; margin-right: auto; }
-    .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
-    .btn-wa-lg:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+    .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: #0F7F44; color: #fff; padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
+    .btn-wa-lg:hover { background: #0B6A38; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(15,127,68,0.4); }
 
     .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #1B4F9C; font-weight: 600; justify-content: center; margin-top: 2rem; }
     .back-link:hover { text-decoration: underline; }
@@ -138,7 +142,7 @@
     .btn-quiz { display: inline-flex; align-items: center; gap: 0.6rem; background: #fff; color: #1B4F9C; padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
     .btn-quiz:hover { background: #eff6ff; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
 
-    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; z-index: 999; }
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #0F7F44; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(15,127,68,0.45); transition: transform 0.2s; z-index: 999; }
     .wa-float:hover { transform: scale(1.1); }
 
     @media (max-width: 800px) {
@@ -152,6 +156,15 @@
     @media (max-width: 480px) {
       .types-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* Imagenes con width/height: la altura se calcula sola; iconos con tamano reservado */
+    :where(img) { height: auto; }
+    i[class*="fa-"] { display: inline-block; width: 1em; height: 1em; flex: none; vertical-align: -0.125em; }
+    /* Accesibilidad: foco visible y movimiento reducido */
+    :focus-visible { outline: 3px solid #1B4F9C; outline-offset: 2px; box-shadow: 0 0 0 5px rgba(255,255,255,0.9); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
     }
   </style>
   <!-- Meta Pixel Code -->
@@ -168,18 +181,19 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1" alt=""
   /></noscript>
   <!-- End Meta Pixel Code -->
+  <script src="/assets/icons.js" defer></script>
 </head>
 <body>
 
   <header class="header">
     <div class="header-inner">
-      <a href="/"><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" /></a>
+      <a href="/"><picture><source srcset="/assets/logo_header.webp" type="image/webp" /><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" width="915" height="200" /></picture></a>
       <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20consultar%20sobre%20lentes%20de%20contacto"
          class="btn-wa" target="_blank" rel="noopener"
-         onclick="gtag('event','click_whatsapp',{event_category:'contactologia_header'})">
+         onclick="gtag('event','click_whatsapp',{event_category:'contactologia_header'});fbq('track','Contact')">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
@@ -199,12 +213,12 @@
         </div>
         <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20consultar%20sobre%20lentes%20de%20contacto"
            class="btn-hero-wa" target="_blank" rel="noopener"
-           onclick="gtag('event','click_whatsapp',{event_category:'contactologia_hero'})">
+           onclick="gtag('event','click_whatsapp',{event_category:'contactologia_hero'});fbq('track','Contact')">
           <i class="fab fa-whatsapp"></i> Consultar disponibilidad
         </a>
       </div>
       <div class="hero-img">
-        <img src="/assets/contactologia/aplicacion-lente.jpg" alt="Lentes de contacto de distintas marcas disponibles en Centro Óptico Santa Fe" />
+        <picture><source srcset="/assets/contactologia/aplicacion-lente.webp" type="image/webp" /><img src="/assets/contactologia/aplicacion-lente.jpg" alt="Lentes de contacto de distintas marcas disponibles en Centro Óptico Santa Fe" width="1448" height="1086" /></picture>
       </div>
     </div>
   </section>
@@ -226,7 +240,7 @@
   <div class="section">
     <div class="gabinete-grid">
       <div class="gabinete-img">
-        <img src="/assets/contactologia/gabinete-consulta.jpg" alt="Gabinete de contactología - consulta profesional" loading="lazy" />
+        <picture><source srcset="/assets/contactologia/gabinete-consulta.webp" type="image/webp" /><img src="/assets/contactologia/gabinete-consulta.jpg" alt="Gabinete de contactología - consulta profesional" loading="lazy" width="1586" height="992" /></picture>
       </div>
       <div class="gabinete-text">
         <h2>Nuestro gabinete de contactología</h2>
@@ -312,7 +326,7 @@
       </div>
     </div>
     <div class="process-img">
-      <img src="/assets/contactologia/proceso-adaptacion.jpg" alt="Aplicación de lente de contacto en el ojo" loading="lazy" />
+      <picture><source srcset="/assets/contactologia/proceso-adaptacion.webp" type="image/webp" /><img src="/assets/contactologia/proceso-adaptacion.jpg" alt="Aplicación de lente de contacto en el ojo" loading="lazy" width="1200" height="800" /></picture>
     </div>
   </div>
 
@@ -409,7 +423,7 @@
       <p>Escribinos por WhatsApp y coordinamos tu turno en el gabinete de contactología. Sin compromiso.</p>
       <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20coordinar%20una%20consulta%20de%20contactolog%C3%ADa"
          class="btn-wa-lg" target="_blank" rel="noopener"
-         onclick="gtag('event','click_whatsapp',{event_category:'contactologia_cta'})">
+         onclick="gtag('event','click_whatsapp',{event_category:'contactologia_cta'});fbq('track','Contact')">
         <i class="fab fa-whatsapp"></i> Coordinar consulta por WhatsApp
       </a>
     </div>
@@ -417,7 +431,7 @@
   </div>
 
   <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20consultar%20sobre%20lentes%20de%20contacto"
-     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp" onclick="fbq('track','Contact')">
     <i class="fab fa-whatsapp"></i>
   </a>
 

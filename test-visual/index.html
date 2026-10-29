@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test de Visión Gratuito | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://centro-optico-santafe.netlify.app/test-visual/" />
   <meta name="description" content="Hacé el test de visión gratuito de Centro Óptico Santa Fe. 7 preguntas para saber si necesitás una evaluación visual en Ciudad del Este, Paraguay." />
   <meta property="og:title" content="Test de Visión Gratuito | Centro Óptico Santa Fe" />
@@ -24,8 +27,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,7 +38,7 @@
       --blue: #1B4F9C;
       --dark-blue: #143d7a;
       --red: #C0392B;
-      --green: #25D366;
+      --green: #0F7F44;
       --bg: #f0f4ff;
     }
 
@@ -390,7 +394,7 @@
       transition: background 0.2s, transform 0.2s;
       margin-bottom: 0.75rem;
     }
-    .btn-wa-result:hover { background: #1da851; transform: translateY(-2px); }
+    .btn-wa-result:hover { background: #0B6A38; transform: translateY(-2px); }
 
     .btn-repeat {
       display: flex;
@@ -410,7 +414,7 @@
 
     .disclaimer {
       font-size: 0.75rem;
-      color: #94a3b8;
+      color: #64748b;
       margin-top: 1.25rem;
       line-height: 1.5;
       text-align: center;
@@ -430,7 +434,7 @@
       align-items: center;
       justify-content: center;
       font-size: 1.7rem;
-      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+      box-shadow: 0 4px 18px rgba(15,127,68,0.45);
       transition: transform 0.2s;
       z-index: 999;
     }
@@ -439,6 +443,15 @@
     @media (max-width: 480px) {
       .question-card, .result-card { padding: 1.5rem 1.25rem; }
       .quiz-meta { gap: 1rem; }
+    }
+  
+    /* Imagenes con width/height: la altura se calcula sola; iconos con tamano reservado */
+    :where(img) { height: auto; }
+    i[class*="fa-"] { display: inline-block; width: 1em; height: 1em; flex: none; vertical-align: -0.125em; }
+    /* Accesibilidad: foco visible y movimiento reducido */
+    :focus-visible { outline: 3px solid #1B4F9C; outline-offset: 2px; box-shadow: 0 0 0 5px rgba(255,255,255,0.9); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
     }
   </style>
   <!-- Meta Pixel Code -->
@@ -455,16 +468,17 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1" alt=""
   /></noscript>
   <!-- End Meta Pixel Code -->
+  <script src="/assets/icons.js" defer></script>
 </head>
 <body>
 
   <header class="header">
     <div class="header-inner">
       <a href="/">
-        <img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" />
+        <picture><source srcset="/assets/logo_header.webp" type="image/webp" /><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" width="915" height="200" /></picture>
       </a>
       <a href="/" class="back-link">
         <i class="fas fa-arrow-left"></i> Volver al inicio
@@ -527,7 +541,7 @@
   </div>
 
   <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
-     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp" onclick="fbq('track','Contact')">
     <i class="fab fa-whatsapp"></i>
   </a>
 

@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contáctenos | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://centro-optico-santafe.netlify.app/contactenos/" />
   <meta property="og:title" content="Contáctenos | Centro Óptico Santa Fe" />
   <meta property="og:description" content="WhatsApp +595 973 851 449 · Instagram @cosf_cde · Blas Garay 1149, Ciudad del Este, Paraguay." />
@@ -24,8 +27,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,8 +39,8 @@
     .header { background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,0.08); padding: 0 1.25rem; }
     .header-inner { max-width: 1100px; margin: 0 auto; height: 68px; display: flex; align-items: center; justify-content: space-between; }
     .logo-img { height: 44px; width: auto; }
-    .btn-wa-sm { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
-    .btn-wa-sm:hover { background: #1da851; }
+    .btn-wa-sm { display: inline-flex; align-items: center; gap: 0.5rem; background: #0F7F44; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    .btn-wa-sm:hover { background: #0B6A38; }
 
     .hero { background: linear-gradient(135deg, #143d7a, #1B4F9C); color: #fff; padding: 3rem 1.25rem; text-align: center; }
     .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.25); }
@@ -67,7 +71,7 @@
       margin: 0 auto 1.1rem;
       color: #fff;
     }
-    .ch-wa { background: #25D366; }
+    .ch-wa { background: #0F7F44; }
     .ch-ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
     .ch-loc { background: #1B4F9C; }
 
@@ -84,8 +88,8 @@
       transition: all 0.2s;
       color: #fff;
     }
-    .btn-channel.wa { background: #25D366; }
-    .btn-channel.wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.35); }
+    .btn-channel.wa { background: #0F7F44; }
+    .btn-channel.wa:hover { background: #0B6A38; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15,127,68,0.35); }
     .btn-channel.ig { background: linear-gradient(135deg, #e6683c, #cc2366); }
     .btn-channel.ig:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(204,35,102,0.35); }
     .btn-channel.maps { background: #1B4F9C; }
@@ -133,7 +137,7 @@
       gap: 0.6rem;
       margin-top: 1rem;
     }
-    .wa-note i { color: #25D366; font-size: 1.1rem; flex-shrink: 0; }
+    .wa-note i { color: #0F7F44; font-size: 1.1rem; flex-shrink: 0; }
 
     /* CTA final */
     .cta-box {
@@ -146,18 +150,27 @@
     }
     .cta-box h2 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
     .cta-box p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 1.5rem; }
-    .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
-    .btn-wa-lg:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+    .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: #0F7F44; color: #fff; padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
+    .btn-wa-lg:hover { background: #0B6A38; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(15,127,68,0.4); }
 
     .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #1B4F9C; font-weight: 600; justify-content: center; }
     .back-link:hover { text-decoration: underline; }
 
-    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; z-index: 999; }
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #0F7F44; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(15,127,68,0.45); transition: transform 0.2s; z-index: 999; }
     .wa-float:hover { transform: scale(1.1); }
 
     @media (max-width: 700px) {
       .channels { grid-template-columns: 1fr; }
       .info-row { grid-template-columns: 1fr; }
+    }
+  
+    /* Imagenes con width/height: la altura se calcula sola; iconos con tamano reservado */
+    :where(img) { height: auto; }
+    i[class*="fa-"] { display: inline-block; width: 1em; height: 1em; flex: none; vertical-align: -0.125em; }
+    /* Accesibilidad: foco visible y movimiento reducido */
+    :focus-visible { outline: 3px solid #1B4F9C; outline-offset: 2px; box-shadow: 0 0 0 5px rgba(255,255,255,0.9); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
     }
   </style>
   <!-- Meta Pixel Code -->
@@ -174,18 +187,19 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1" alt=""
   /></noscript>
   <!-- End Meta Pixel Code -->
+  <script src="/assets/icons.js" defer></script>
 </head>
 <body>
 
   <header class="header">
     <div class="header-inner">
-      <a href="/"><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" /></a>
+      <a href="/"><picture><source srcset="/assets/logo_header.webp" type="image/webp" /><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" width="915" height="200" /></picture></a>
       <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
          class="btn-wa-sm" target="_blank" rel="noopener"
-         onclick="gtag('event','click_whatsapp',{event_category:'contactenos_header'})">
+         onclick="gtag('event','click_whatsapp',{event_category:'contactenos_header'});fbq('track','Contact')">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
@@ -209,7 +223,7 @@
         <p>Consultás precios, recetas, disponibilidad o cualquier duda. Respondemos a la brevedad.</p>
         <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
            class="btn-channel wa" target="_blank" rel="noopener"
-           onclick="gtag('event','click_whatsapp',{event_category:'contactenos_canal'})">
+           onclick="gtag('event','click_whatsapp',{event_category:'contactenos_canal'});fbq('track','Contact')">
           <i class="fab fa-whatsapp"></i> Escribir ahora
         </a>
       </div>
@@ -230,7 +244,7 @@
         <div class="ch-icon ch-loc"><i class="fas fa-map-marker-alt"></i></div>
         <h3>Dirección</h3>
         <div class="handle" style="font-size:0.85rem; line-height:1.4">Blas Garay 1149 c/ Avda. San José<br>Barrio San Isidro, CDE</div>
-        <p>Vení a vernos en persona. Te atendemos con o sin turno en horario comercial.</p>
+        <p>Vení a vernos en persona. Te atendemos con o sin turno, de lunes a viernes de 08:00 a 19:00.</p>
         <a href="https://www.google.com/maps/dir/?api=1&destination=Blas+Garay+1149+San+Jos%C3%A9+Ciudad+del+Este+Paraguay"
            class="btn-channel maps" target="_blank" rel="noopener"
            onclick="gtag('event','click_maps',{event_category:'contactenos_canal'})">
@@ -247,27 +261,27 @@
         <h3><i class="fas fa-clock"></i> Horario de atención</h3>
         <div class="schedule-row">
           <span class="day">Lunes</span>
-          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="time">08:00 – 19:00</span>
           <span class="badge-open">Abierto</span>
         </div>
         <div class="schedule-row">
           <span class="day">Martes</span>
-          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="time">08:00 – 19:00</span>
           <span class="badge-open">Abierto</span>
         </div>
         <div class="schedule-row">
           <span class="day">Miércoles</span>
-          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="time">08:00 – 19:00</span>
           <span class="badge-open">Abierto</span>
         </div>
         <div class="schedule-row">
           <span class="day">Jueves</span>
-          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="time">08:00 – 19:00</span>
           <span class="badge-open">Abierto</span>
         </div>
         <div class="schedule-row">
           <span class="day">Viernes</span>
-          <span class="time">08:00 – 12:00 y 14:00 – 17:00</span>
+          <span class="time">08:00 – 19:00</span>
           <span class="badge-open">Abierto</span>
         </div>
         <div class="schedule-row">
@@ -282,7 +296,7 @@
         </div>
         <div class="wa-note">
           <i class="fab fa-whatsapp"></i>
-          <span>Fuera del horario podés escribirnos por WhatsApp y te respondemos al día siguiente.</span>
+          <span>Sábados, domingos y fuera del horario: estamos al llamado las 24 horas, de lunes a domingo, por WhatsApp o llamada.</span>
         </div>
       </div>
 
@@ -309,7 +323,7 @@
       <p>Escribinos ahora y en minutos te respondemos. Sin vueltas, sin esperas.</p>
       <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
          class="btn-wa-lg" target="_blank" rel="noopener"
-         onclick="gtag('event','click_whatsapp',{event_category:'contactenos_cta'})">
+         onclick="gtag('event','click_whatsapp',{event_category:'contactenos_cta'});fbq('track','Contact')">
         <i class="fab fa-whatsapp"></i> Iniciar consulta por WhatsApp
       </a>
     </div>
@@ -318,7 +332,7 @@
   </div>
 
   <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
-     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp" onclick="fbq('track','Contact')">
     <i class="fab fa-whatsapp"></i>
   </a>
 

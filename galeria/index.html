@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galería | Centro Óptico Santa Fe - Ciudad del Este</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://centro-optico-santafe.netlify.app/galeria/" />
   <meta property="og:title" content="Galería de fotos | Centro Óptico Santa Fe" />
   <meta property="og:description" content="Conocé nuestro local, armazones y el trabajo que hacemos en Centro Óptico Santa Fe, Ciudad del Este." />
@@ -24,8 +27,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" /></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,8 +39,8 @@
     .header { background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,0.08); padding: 0 1.25rem; }
     .header-inner { max-width: 1100px; margin: 0 auto; height: 68px; display: flex; align-items: center; justify-content: space-between; }
     .logo-img { height: 44px; width: auto; }
-    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
-    .btn-wa:hover { background: #1da851; }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: #0F7F44; color: #fff; padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    .btn-wa:hover { background: #0B6A38; }
 
     .hero { background: linear-gradient(135deg, #143d7a, #1B4F9C); color: #fff; padding: 3rem 1.25rem; text-align: center; }
     .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.25); }
@@ -201,7 +205,7 @@
     .back-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #1B4F9C; font-weight: 600; justify-content: center; }
     .back-link:hover { text-decoration: underline; }
 
-    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(37,211,102,0.45); transition: transform 0.2s; z-index: 999; }
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: #0F7F44; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 18px rgba(15,127,68,0.45); transition: transform 0.2s; z-index: 999; }
     .wa-float:hover { transform: scale(1.1); }
 
     @media (max-width: 680px) {
@@ -211,6 +215,15 @@
     @media (max-width: 420px) {
       .photo-grid { grid-template-columns: 1fr; }
       .photo-item.wide { grid-column: span 1; aspect-ratio: 1/1; }
+    }
+  
+    /* Imagenes con width/height: la altura se calcula sola; iconos con tamano reservado */
+    :where(img) { height: auto; }
+    i[class*="fa-"] { display: inline-block; width: 1em; height: 1em; flex: none; vertical-align: -0.125em; }
+    /* Accesibilidad: foco visible y movimiento reducido */
+    :focus-visible { outline: 3px solid #1B4F9C; outline-offset: 2px; box-shadow: 0 0 0 5px rgba(255,255,255,0.9); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
     }
   </style>
   <!-- Meta Pixel Code -->
@@ -227,17 +240,18 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1" alt=""
   /></noscript>
   <!-- End Meta Pixel Code -->
+  <script src="/assets/icons.js" defer></script>
 </head>
 <body>
 
   <header class="header">
     <div class="header-inner">
-      <a href="/"><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" /></a>
+      <a href="/"><picture><source srcset="/assets/logo_header.webp" type="image/webp" /><img src="/assets/logo_header.png" alt="Centro Óptico Santa Fe" class="logo-img" width="915" height="200" /></picture></a>
       <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
-         class="btn-wa" target="_blank" rel="noopener">
+         class="btn-wa" target="_blank" rel="noopener" onclick="fbq('track','Contact')">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
@@ -263,42 +277,42 @@
       <div class="photo-grid">
 
         <div class="photo-item wide">
-          <img src="/assets/galeria/tendencias/armazon-1-diverso.jpg" alt="Variedad de estilos de armazones en tendencia" loading="lazy" />
+          <picture><source srcset="/assets/galeria/tendencias/armazon-1-diverso.webp" type="image/webp" /><img src="/assets/galeria/tendencias/armazon-1-diverso.jpg" alt="Variedad de estilos de armazones en tendencia" width="1200" height="801" /></picture>
           <div class="photo-overlay"><span class="photo-label">Estilos variados</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/tendencias/armazon-2-amarillo.jpg" alt="Colección de armazones modernos" loading="lazy" />
+          <picture><source srcset="/assets/galeria/tendencias/armazon-2-amarillo.webp" type="image/webp" /><img src="/assets/galeria/tendencias/armazon-2-amarillo.jpg" alt="Colección de armazones modernos" width="1200" height="1800" /></picture>
           <div class="photo-overlay"><span class="photo-label">Colección moderna</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/tendencias/armazon-3-minimalista.jpg" alt="Armazón minimalista elegante" loading="lazy" />
+          <picture><source srcset="/assets/galeria/tendencias/armazon-3-minimalista.webp" type="image/webp" /><img src="/assets/galeria/tendencias/armazon-3-minimalista.jpg" alt="Armazón minimalista elegante" loading="lazy" width="1200" height="1500" /></picture>
           <div class="photo-overlay"><span class="photo-label">Estilo minimalista</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/tendencias/armazon-4-rectangular.jpg" alt="Armazón rectangular de tendencia" loading="lazy" />
+          <picture><source srcset="/assets/galeria/tendencias/armazon-4-rectangular.webp" type="image/webp" /><img src="/assets/galeria/tendencias/armazon-4-rectangular.jpg" alt="Armazón rectangular de tendencia" loading="lazy" width="1200" height="800" /></picture>
           <div class="photo-overlay"><span class="photo-label">Rectangular</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/tendencias/armazon-5-chic.jpg" alt="Armazón chic en exhibición" loading="lazy" />
+          <picture><source srcset="/assets/galeria/tendencias/armazon-5-chic.webp" type="image/webp" /><img src="/assets/galeria/tendencias/armazon-5-chic.jpg" alt="Armazón chic en exhibición" loading="lazy" width="1200" height="1798" /></picture>
           <div class="photo-overlay"><span class="photo-label">Chic</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/tendencias/armazon-6-moderno.jpg" alt="Armazón de diseño moderno" loading="lazy" />
+          <picture><source srcset="/assets/galeria/tendencias/armazon-6-moderno.webp" type="image/webp" /><img src="/assets/galeria/tendencias/armazon-6-moderno.jpg" alt="Armazón de diseño moderno" loading="lazy" width="1200" height="801" /></picture>
           <div class="photo-overlay"><span class="photo-label">Diseño moderno</span></div>
         </div>
 
         <div class="photo-item wide">
-          <img src="/assets/galeria/tendencias/armazon-7-elegante.jpg" alt="Armazón elegante en exhibición" loading="lazy" />
+          <picture><source srcset="/assets/galeria/tendencias/armazon-7-elegante.webp" type="image/webp" /><img src="/assets/galeria/tendencias/armazon-7-elegante.jpg" alt="Armazón elegante en exhibición" loading="lazy" width="1200" height="1800" /></picture>
           <div class="photo-overlay"><span class="photo-label">Elegante</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/tendencias/armazon-8-variedad.jpg" alt="Amplia variedad de armazones" loading="lazy" />
+          <picture><source srcset="/assets/galeria/tendencias/armazon-8-variedad.webp" type="image/webp" /><img src="/assets/galeria/tendencias/armazon-8-variedad.jpg" alt="Amplia variedad de armazones" loading="lazy" width="1200" height="800" /></picture>
           <div class="photo-overlay"><span class="photo-label">Amplia variedad</span></div>
         </div>
 
@@ -312,22 +326,22 @@
       <div class="photo-grid">
 
         <div class="photo-item wide">
-          <img src="/assets/galeria/opticas/optica-3-moderna.jpg" alt="Interior moderno de óptica" loading="lazy" />
+          <picture><source srcset="/assets/galeria/opticas/optica-3-moderna.webp" type="image/webp" /><img src="/assets/galeria/opticas/optica-3-moderna.jpg" alt="Interior moderno de óptica" loading="lazy" width="1200" height="1600" /></picture>
           <div class="photo-overlay"><span class="photo-label">Espacio moderno</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/opticas/optica-1-vidriera.jpg" alt="Vidriera de exhibición de lentes" loading="lazy" />
+          <picture><source srcset="/assets/galeria/opticas/optica-1-vidriera.webp" type="image/webp" /><img src="/assets/galeria/opticas/optica-1-vidriera.jpg" alt="Vidriera de exhibición de lentes" loading="lazy" width="1200" height="1800" /></picture>
           <div class="photo-overlay"><span class="photo-label">Vidriera</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/opticas/optica-2-exhibicion.jpg" alt="Exhibidor de lentes en óptica" loading="lazy" />
+          <picture><source srcset="/assets/galeria/opticas/optica-2-exhibicion.webp" type="image/webp" /><img src="/assets/galeria/opticas/optica-2-exhibicion.jpg" alt="Exhibidor de lentes en óptica" loading="lazy" width="1200" height="800" /></picture>
           <div class="photo-overlay"><span class="photo-label">Exhibición</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/opticas/optica-4-atencion.jpg" alt="Atención profesional en óptica" loading="lazy" />
+          <picture><source srcset="/assets/galeria/opticas/optica-4-atencion.webp" type="image/webp" /><img src="/assets/galeria/opticas/optica-4-atencion.jpg" alt="Atención profesional en óptica" loading="lazy" width="1200" height="758" /></picture>
           <div class="photo-overlay"><span class="photo-label">Atención profesional</span></div>
         </div>
 
@@ -340,27 +354,27 @@
       <div class="photo-grid">
 
         <div class="photo-item wide">
-          <img src="/assets/galeria/foto1-local.jpg" alt="Centro Óptico Santa Fe - Óptica profesional" loading="lazy" />
+          <picture><source srcset="/assets/galeria/foto1-local.webp" type="image/webp" /><img src="/assets/galeria/foto1-local.jpg" alt="Centro Óptico Santa Fe - Óptica profesional" loading="lazy" width="1066" height="672" /></picture>
           <div class="photo-overlay"><span class="photo-label">Óptica profesional</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/foto2-armazones.jpg" alt="Armazones oftálmicos - Centro Óptico Santa Fe" loading="lazy" />
+          <picture><source srcset="/assets/galeria/foto2-armazones.webp" type="image/webp" /><img src="/assets/galeria/foto2-armazones.jpg" alt="Armazones oftálmicos - Centro Óptico Santa Fe" loading="lazy" width="900" height="900" /></picture>
           <div class="photo-overlay"><span class="photo-label">Armazones oftálmicos</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/foto3-sol.jpg" alt="Lentes de sol - Centro Óptico Santa Fe" loading="lazy" />
+          <picture><source srcset="/assets/galeria/foto3-sol.webp" type="image/webp" /><img src="/assets/galeria/foto3-sol.jpg" alt="Lentes de sol - Centro Óptico Santa Fe" loading="lazy" width="900" height="900" /></picture>
           <div class="photo-overlay"><span class="photo-label">Lentes de sol</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/foto4-oftalmicos.jpg" alt="Lentes oftálmicos - Centro Óptico Santa Fe" loading="lazy" />
+          <picture><source srcset="/assets/galeria/foto4-oftalmicos.webp" type="image/webp" /><img src="/assets/galeria/foto4-oftalmicos.jpg" alt="Lentes oftálmicos - Centro Óptico Santa Fe" loading="lazy" width="900" height="1200" /></picture>
           <div class="photo-overlay"><span class="photo-label">Lentes oftálmicos</span></div>
         </div>
 
         <div class="photo-item">
-          <img src="/assets/galeria/foto5-variedad.jpg" alt="Variedad de armazones - Centro Óptico Santa Fe" loading="lazy" />
+          <picture><source srcset="/assets/galeria/foto5-variedad.webp" type="image/webp" /><img src="/assets/galeria/foto5-variedad.jpg" alt="Variedad de armazones - Centro Óptico Santa Fe" loading="lazy" width="493" height="872" /></picture>
           <div class="photo-overlay"><span class="photo-label">Amplia variedad</span></div>
         </div>
 
@@ -387,7 +401,7 @@
   </div>
 
   <a href="https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20hacer%20una%20consulta"
-     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+     class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp" onclick="fbq('track','Contact')">
     <i class="fab fa-whatsapp"></i>
   </a>
 
