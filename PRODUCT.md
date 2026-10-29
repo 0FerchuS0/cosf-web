@@ -28,8 +28,8 @@ Sitio institucional y de captación de Centro Óptico Santa Fe (COSF), una ópti
 
 ## Operating Context
 
-- Local: Blas Garay 1149 c/ Avda. San José, Barrio San Isidro, Ciudad del Este. Horario del local: lunes a viernes 08:00–19:00 corrido; sábado y domingo cerrado. WhatsApp +595 973 851 449. Instagram @cosf_cde.
-- Sitio estático (HTML/CSS/JS) en GitHub (0FerchuS0/cosf-web) con deploy automático en Netlify (centro-optico-santafe.netlify.app). Cada página es autocontenida con su propio `<style>`; el home usa `styles.css` y `main.js`.
+- Local: Blas Garay 1149 c/ Avda. San José, Barrio San Isidro, Ciudad del Este. Horario del local: todos los días (lunes a domingo, incluso feriados) 08:00–19:00 corrido. WhatsApp +595 973 851 449. Instagram @cosf_cde.
+- Sitio estático (HTML/CSS/JS) en GitHub (0FerchuS0/cosf-web) con deploy automático en Netlify (centroopticosantafe.com). Cada página es autocontenida con su propio `<style>`; el home usa `styles.css` y `main.js`.
 - Publicidad en Google Ads (campaña local CDE) con grupos de anuncios para multifocales y lentes de contacto; analítica GA4 y Meta Pixel instalados.
 - Español rioplatense/paraguayo con voseo ("Escribinos", "Consultá"); precios en guaraníes (Gs.).
 
@@ -39,7 +39,7 @@ Sitio institucional y de captación de Centro Óptico Santa Fe (COSF), una ópti
 - Multifocales: rango de precio del par Gs. 500.000 a Gs. 3.800.000 según campo de visión, marca y tratamientos; la cotización exacta requiere pasar por la óptica (no se cotiza por WhatsApp). Plazo de fabricación y garantía de adaptación: pendientes de confirmar, no inventar.
 - Solamax es una marca que COSF también vende (no tratarla como competencia).
 - No hay carrito ni checkout; todo cierre ocurre en el local o por WhatsApp.
-- Pendiente: contenido en portugués (pt-BR) y dominio propio (hoy netlify.app).
+- Dominio oficial: centroopticosantafe.com (política de privacidad en /privacidad/). Pendiente: contenido en portugués (pt-BR).
 
 ## Brand Commitments
 
