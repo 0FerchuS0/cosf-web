@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Conectar WhatsApp – COSF</title>
+<style>
+  body{font-family:system-ui,Segoe UI,Roboto,sans-serif;background:#f4f6f8;color:#1c2430;margin:0;padding:24px}
+  .card{max-width:560px;margin:40px auto;background:#fff;border-radius:14px;padding:28px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+  h1{font-size:22px;margin:0 0 8px}
+  p{line-height:1.5}
+  button{background:#1877f2;color:#fff;border:0;border-radius:8px;padding:14px 22px;font-size:16px;font-weight:600;cursor:pointer;width:100%}
+  button:disabled{opacity:.5}
+  pre{background:#0f1720;color:#c8f7c5;padding:14px;border-radius:8px;white-space:pre-wrap;word-break:break-all;font-size:13px}
+  .warn{background:#fff4e5;border-left:4px solid #f59e0b;padding:10px 14px;border-radius:6px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Conectar WhatsApp Business de COSF</h1>
+  <p>Esta página conecta el número del local con la app <b>COSF MENSAJES</b> en modo <b>coexistencia</b>: el WhatsApp del celular sigue funcionando.</p>
+  <p class="warn">Antes de empezar: tené el celular a mano con WhatsApp Business actualizado. Cuando aparezca la opción, elegí <b>conectar tu cuenta existente de WhatsApp Business</b> y escaneá el QR. <b>No</b> elijas crear un número nuevo.</p>
+  <button id="btn" onclick="launchWhatsAppSignup()" disabled>Cargando…</button>
+  <h3>Resultado</h3>
+  <pre id="out">Todavía no se inició.</pre>
+</div>
+<script>
+  var out = document.getElementById('out');
+  function log(t){ out.textContent = (out.textContent === 'Todavía no se inició.' ? '' : out.textContent + '\n') + t; }
+
+  window.fbAsyncInit = function () {
+    FB.init({ appId: '1955679272060691', autoLogAppEvents: true, xfbml: true, version: 'v25.0' });
+    var b = document.getElementById('btn'); b.disabled = false; b.textContent = 'Conectar WhatsApp';
+  };
+
+  // Datos de la sesión (WABA y número) que manda Meta al terminar
+  window.addEventListener('message', function (event) {
+    if (!event.origin.endsWith('facebook.com')) return;
+    try {
+      var data = JSON.parse(event.data);
+      if (data.type === 'WA_EMBEDDED_SIGNUP') {
+        log('EVENTO: ' + data.event);
+        log(JSON.stringify(data.data, null, 2));
+        if (data.event === 'FINISH_WHATSAPP_BUSINESS_APP_ONBOARDING' || data.event === 'FINISH') {
+          log('\n✅ LISTO. Mandale una captura de esta pantalla a Claude.');
+        }
+      }
+    } catch (e) { /* mensajes que no son JSON */ }
+  });
+
+  function fbLoginCallback(response) {
+    if (response.authResponse && response.authResponse.code) {
+      log('Autorización recibida (código guardado solo en esta pantalla).');
+    } else {
+      log('Se cerró o canceló la ventana: ' + JSON.stringify(response.status || response));
+    }
+  }
+
+  function launchWhatsAppSignup() {
+    FB.login(fbLoginCallback, {
+      config_id: '1392376899638555',
+      response_type: 'code',
+      override_default_response_type: true,
+      extras: {
+        setup: {},
+        featureType: 'whatsapp_business_app_onboarding',
+        sessionInfoVersion: '3'
+      }
+    });
+  }
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js"></script>
+</body>
+</html>
