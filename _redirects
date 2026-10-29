@@ -1,1 +1,4 @@
 /agendar  https://wa.me/595973851449?text=Hola%20Centro%20%C3%93ptico%20Santa%20Fe%2C%20quiero%20agendar%20un%20examen%20visual  302
+
+# Herramientas internas: no se sirven al publico
+/herramientas/*  /index.html  404!

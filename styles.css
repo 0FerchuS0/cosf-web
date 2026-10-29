@@ -282,6 +282,9 @@ img { max-width: 100%; display: block; }
 .location-list a { color: var(--blue); font-weight: 600; }
 .location-list .is-key dd { font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 700; line-height: 1.3; color: var(--gray-900); }
 .location-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.location-more { margin-top: 1.25rem; font-size: 0.95rem; color: var(--gray-600); }
+.location-more a { color: var(--blue); font-weight: 600; border-bottom: 2px solid transparent; }
+.location-more a:hover { border-bottom-color: var(--blue); }
 .map-container { border-radius: var(--radius-lg); overflow: hidden; }
 .map-container iframe { width: 100%; height: 400px; border: none; display: block; }
 

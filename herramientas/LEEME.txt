@@ -1,0 +1,38 @@
+CÓMO ACTUALIZAR EL CATÁLOGO
+===========================
+
+Carpeta de trabajo: C:\COSF\fotos
+  productos.csv           <- una fila por producto (se abre con Excel)
+  armazones\              <- fotos de armazones
+  lentes-de-sol\          <- fotos de lentes de sol
+  lentes-de-contacto\     <- fotos de lentes de contacto
+  accesorios\             <- fotos de estuches, paños y cordones
+
+Pasos
+1. Guardá las fotos en la subcarpeta que corresponda.
+   Nombralas con el código del producto:  arm-001-frente.jpg  y  arm-001-costado.jpg
+   (armazones y lentes de sol: 2 fotos; lentes de contacto y accesorios: 1 foto).
+   Medida ideal: cuadradas o 4:5, producto centrado, mismo fondo en todas.
+2. Agregá o cambiá la fila en productos.csv.
+3. Hacé doble clic en "Actualizar catalogo.bat" (carpeta herramientas).
+   Si falta algo, te dice exactamente qué corregir en la planilla.
+4. Avisale a Claude para revisar y publicar.
+
+Columnas de productos.csv
+  codigo             único, sin repetir (ej. ARM-001)
+  categoria          Armazones | Lentes de sol | Lentes de contacto | Accesorios
+  nombre_modelo      nombre que ve el cliente
+  marca              opcional
+  para               Mujer | Hombre | Niños | Unisex  (vacío = para todos)
+  forma, material, estilo, color, medidas   opcionales (medidas: 54-18-140)
+                     material, forma y estilo son los que aparecen de a uno sobre la foto de la
+                     portada (ej. Titanio / Ovalado / Moderno, atemporal)
+  descripcion_corta  una frase, opcional
+  foto_frente        nombre del archivo (ej. arm-001-frente.jpg)
+  foto_costado       nombre del archivo, opcional
+  destacado          si | no   (los destacados salen primero)
+  estado             disponible | agotado | oculto
+
+Para sacar un modelo que ya no está: cambiá su estado a "oculto" (no lo borres de la planilla,
+así lo podés volver a mostrar). Las fotos que dejen de usarse se limpian solas.
+No se muestran precios: cada producto lleva un botón para consultar por WhatsApp.

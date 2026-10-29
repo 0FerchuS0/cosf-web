@@ -1,0 +1,11 @@
+# Vista de ejemplo del catálogo: nunca se publica
+catalogo-demo/
+assets/catalogo-demo/
+
+# Instalación local de Impeccable y permisos locales de Claude
+.claude/skills/
+.claude/agents/
+.claude/settings.local.json
+
+# Bocetos y archivos de trabajo del diseño (no son parte del sitio)
+.impeccable/
