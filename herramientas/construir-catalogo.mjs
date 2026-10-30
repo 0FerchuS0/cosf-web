@@ -174,7 +174,7 @@ function tarjeta(p, i) {
     ? `<img class="alt" src="${esc(p.fotos[1].thumb)}" alt="" width="${p.fotos[1].w}" height="${p.fotos[1].h}" loading="lazy" decoding="async" />`
     : '';
   const tag = p.estado === 'agotado' ? '<span class="pcard-tag agotado">Agotado</span>' : (p.destacado ? '<span class="pcard-tag destacado">Destacado</span>' : '');
-  return `        <article class="pcard" data-id="${esc(p.id)}" data-cat="${p.cat.slug}" data-para="${p.para}">
+  return `        <article class="pcard" id="${esc(p.id)}" data-id="${esc(p.id)}" data-cat="${p.cat.slug}" data-para="${p.para}">
           <a class="pcard-media" href="${esc(f.src)}" data-open="${esc(p.id)}" aria-label="Ver fotos de ${esc(p.nombre)}">
             <span class="pcard-num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
             ${tag}
@@ -209,9 +209,12 @@ function pagina(productos, categoriasUsadas) {
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: total,
+      // Sin @type "Product": Google lo exige con precio, reseñas o calificación, y el catálogo no publica precios.
       itemListElement: productos.map((p, i) => ({
         '@type': 'ListItem', position: i + 1,
-        item: { '@type': 'Product', name: p.nombre, sku: p.codigo, image: SITIO + p.fotos[0].src, ...(p.marca ? { brand: { '@type': 'Brand', name: p.marca } } : {}), ...(p.desc ? { description: p.desc } : {}), ...(p.color ? { color: p.color } : {}) },
+        name: p.marca && !p.nombre.toLowerCase().startsWith(p.marca.toLowerCase()) ? p.marca + ' ' + p.nombre : p.nombre,
+        url: canonical + '#' + p.id,
+        image: SITIO + p.fotos[0].src,
       })),
     },
   };
