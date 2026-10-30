@@ -182,8 +182,8 @@ function tarjeta(p, i) {
             ${alt2}
           </a>
           <div class="pcard-body">
-            <h3>${esc(p.nombre)}</h3>
             ${p.marca ? `<span class="pcard-brand">${esc(p.marca)}</span>` : ''}
+            <h3>${esc(p.nombre)}</h3>
             ${medidasTxt(p.medidas) ? `<p class="pcard-dim" title="Ancho de lente · puente · varilla (mm)"><span>${medidasTxt(p.medidas)}</span></p>` : ''}
             ${meta ? `<p class="pcard-meta">${esc(meta)}</p>` : ''}
             <div class="pcard-cta">
@@ -242,10 +242,6 @@ ${items.map((p) => tarjeta(p, n++)).join('\n')}
 
   const chips = [`<button type="button" class="chip" data-cat="todos" aria-pressed="true">Todo<span class="n">${total}</span></button>`]
     .concat(categoriasUsadas.map((c) => `<button type="button" class="chip" data-cat="${c.slug}" aria-pressed="false">${c.nombre}<span class="n">${productos.filter((p) => p.cat.slug === c.slug).length}</span></button>`)).join('\n          ');
-
-  const selectPara = paraUsados.length > 1
-    ? `<label class="cat-para">Para <select id="filtro-para"><option value="todos">Todos</option>${paraUsados.map((k) => `<option value="${k}">${PARA[k]}</option>`).join('')}</select></label>`
-    : '';
 
   const conCaract = (p) => ['armazones', 'lentes-de-sol'].includes(p.cat.slug) && p.estado !== 'agotado' && (p.material || p.forma || p.estilo);
   const heroFoto = productos.find(conCaract);
@@ -366,9 +362,9 @@ ${total > 0 ? `    <div class="cat-tools">
         <div class="cat-chips" role="group" aria-label="Filtrar por categoría">
           ${chips}
         </div>
-        <div class="cat-selects">${selectPara}</div>
       </div>
     </div>
+    <div class="cat-filtros" id="cat-filtros"></div>
 ` : ''}${cuerpo}
   </main>
 

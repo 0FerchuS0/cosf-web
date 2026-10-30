@@ -7,43 +7,188 @@
   productos.forEach(function (p) { porId[p.id] = p; });
 
   var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-cat]'));
-  var paraSel = document.getElementById('filtro-para');
   var secciones = Array.prototype.slice.call(document.querySelectorAll('.cat-section'));
   var tarjetas = Array.prototype.slice.call(document.querySelectorAll('.pcard'));
   var sinResultados = document.getElementById('cat-sin-resultados');
+  var filtrosEl = document.getElementById('cat-filtros');
   var cat = 'todos';
-  var para = 'todos';
 
-  function coincidePara(valor) {
-    if (para === 'todos') return true;
-    if (valor === para || valor === 'todos') return true;
-    return valor === 'unisex' && (para === 'mujer' || para === 'hombre');
+  /* ----- Filtros: se arman solos con los datos que haya en la planilla ----- */
+  function norm(s) {
+    return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim();
+  }
+  function cap(s) { s = String(s || '').trim(); return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  var FACETAS = [
+    { id: 'marca', nombre: 'Marca', valores: function (p) { return p.marca ? [p.marca] : []; } },
+    { id: 'para', nombre: 'Para', valores: function (p) { return p.paraTexto ? [p.paraTexto] : []; } },
+    { id: 'forma', nombre: 'Forma', valores: function (p) { return p.forma ? [p.forma] : []; } },
+    { id: 'material', nombre: 'Material', valores: function (p) { return p.material ? [p.material] : []; } },
+    { id: 'estilo', nombre: 'Estilo', valores: function (p) { return p.estilo ? p.estilo.split(',') : []; } }
+  ];
+  var sel = { marca: '', para: '', forma: '', material: '', estilo: '' };
+  var consulta = '';
+
+  productos.forEach(function (p) {
+    p._texto = norm([p.nombre, p.marca, p.forma, p.material, p.estilo, p.color, p.paraTexto].join(' '));
+    p._valores = {};
+    FACETAS.forEach(function (f) {
+      p._valores[f.id] = f.valores(p).map(function (v) { return norm(v); }).filter(Boolean);
+    });
+  });
+
+  function coincideFacet(p, f, valor) {
+    if (!valor) return true;
+    if (f.id === 'para') {
+      var k = norm(p.paraTexto);
+      if (k === valor || !k) return true;
+      return k === 'unisex' && (valor === 'mujer' || valor === 'hombre');
+    }
+    return p._valores[f.id].indexOf(valor) !== -1;
+  }
+  /* omitir: faceta que no se aplica (para contar sus opciones); 'cat' ignora la categoría */
+  function coincide(p, omitir) {
+    if (omitir !== 'cat' && cat !== 'todos' && p.cat !== cat) return false;
+    for (var i = 0; i < FACETAS.length; i++) {
+      var f = FACETAS[i];
+      if (f.id !== omitir && !coincideFacet(p, f, sel[f.id])) return false;
+    }
+    if (consulta) {
+      var palabras = consulta.split(' ');
+      for (var j = 0; j < palabras.length; j++) if (p._texto.indexOf(palabras[j]) === -1) return false;
+    }
+    return true;
+  }
+
+  var ui = { selects: {}, opciones: {} };
+  function armarFiltros() {
+    if (!filtrosEl) return;
+    var det = document.createElement('details');
+    det.className = 'cat-filtros-det';
+    var ancho = window.matchMedia ? matchMedia('(min-width: 760px)') : null;
+    det.open = !ancho || ancho.matches;
+    if (ancho && ancho.addEventListener) ancho.addEventListener('change', function (e) { if (e.matches) det.open = true; });
+    var sum = document.createElement('summary');
+    sum.innerHTML = '<span>Filtrar y buscar</span><span class="cat-activos" hidden></span>';
+    det.appendChild(sum);
+    var cuerpo = document.createElement('div');
+    cuerpo.className = 'cat-filtros-cuerpo';
+
+    var lb = document.createElement('label');
+    lb.className = 'cat-buscar';
+    lb.innerHTML = '<span>Buscar</span>';
+    var inp = document.createElement('input');
+    inp.type = 'search';
+    inp.placeholder = 'Modelo, marca, forma…';
+    inp.autocomplete = 'off';
+    inp.addEventListener('input', function () { consulta = norm(inp.value); aplicar(); });
+    lb.appendChild(inp);
+    cuerpo.appendChild(lb);
+    ui.buscador = inp;
+
+    var grupo = document.createElement('div');
+    grupo.className = 'cat-facetas';
+    FACETAS.forEach(function (f) {
+      var vistos = {}, lista = [];
+      productos.forEach(function (p) {
+        f.valores(p).forEach(function (raw) {
+          var k = norm(raw);
+          if (k && !vistos[k]) { vistos[k] = true; lista.push({ k: k, label: cap(raw) }); }
+        });
+      });
+      if (lista.length < 2) return;
+      lista.sort(function (a, b) { return a.label.localeCompare(b.label, 'es'); });
+      var l = document.createElement('label');
+      l.className = 'cat-faceta';
+      var t = document.createElement('span');
+      t.textContent = f.nombre;
+      var s = document.createElement('select');
+      s.setAttribute('data-faceta', f.id);
+      var todos = document.createElement('option');
+      todos.value = '';
+      todos.textContent = 'Todas';
+      s.appendChild(todos);
+      ui.opciones[f.id] = [];
+      lista.forEach(function (it) {
+        var o = document.createElement('option');
+        o.value = it.k;
+        o.setAttribute('data-label', it.label);
+        o.textContent = it.label;
+        s.appendChild(o);
+        ui.opciones[f.id].push(o);
+      });
+      s.addEventListener('change', function () { sel[f.id] = s.value; aplicar(); });
+      l.appendChild(t);
+      l.appendChild(s);
+      grupo.appendChild(l);
+      ui.selects[f.id] = s;
+    });
+    cuerpo.appendChild(grupo);
+
+    var pie = document.createElement('div');
+    pie.className = 'cat-resultado';
+    var cont = document.createElement('p');
+    cont.setAttribute('role', 'status');
+    cont.setAttribute('aria-live', 'polite');
+    var limpiar = document.createElement('button');
+    limpiar.type = 'button';
+    limpiar.className = 'cat-limpiar';
+    limpiar.textContent = 'Limpiar filtros';
+    limpiar.hidden = true;
+    limpiar.addEventListener('click', function () {
+      FACETAS.forEach(function (f) { sel[f.id] = ''; if (ui.selects[f.id]) ui.selects[f.id].value = ''; });
+      consulta = '';
+      if (ui.buscador) ui.buscador.value = '';
+      aplicar();
+    });
+    pie.appendChild(cont);
+    pie.appendChild(limpiar);
+    cuerpo.appendChild(pie);
+    det.appendChild(cuerpo);
+    filtrosEl.appendChild(det);
+    ui.contador = cont;
+    ui.limpiar = limpiar;
+    ui.activos = sum.querySelector('.cat-activos');
   }
 
   function aplicar() {
     var visibles = 0;
-    var conteo = {};
+    var conteoCat = {};
     tarjetas.forEach(function (t) {
-      var okPara = coincidePara(t.dataset.para);
-      if (okPara) conteo[t.dataset.cat] = (conteo[t.dataset.cat] || 0) + 1;
-      var ok = okPara && (cat === 'todos' || t.dataset.cat === cat);
+      var p = porId[t.dataset.id];
+      var okSinCat = p ? coincide(p, 'cat') : true;
+      if (okSinCat) conteoCat[t.dataset.cat] = (conteoCat[t.dataset.cat] || 0) + 1;
+      var ok = p ? coincide(p) : true;
       t.hidden = !ok;
       if (ok) visibles++;
     });
-    secciones.forEach(function (s) {
-      var hay = s.querySelector('.pcard:not([hidden])');
-      s.hidden = !hay;
-    });
+    secciones.forEach(function (s) { s.hidden = !s.querySelector('.pcard:not([hidden])'); });
+
     var total = 0;
     chips.forEach(function (c) {
-      var n = c.dataset.cat === 'todos' ? null : (conteo[c.dataset.cat] || 0);
-      if (n !== null) total += n;
+      if (c.dataset.cat !== 'todos') total += conteoCat[c.dataset.cat] || 0;
       c.setAttribute('aria-pressed', String(c.dataset.cat === cat));
     });
     chips.forEach(function (c) {
-      if (c.dataset.cat === 'todos') c.querySelector('.n').textContent = String(total);
-      else c.querySelector('.n').textContent = String(conteo[c.dataset.cat] || 0);
+      c.querySelector('.n').textContent = String(c.dataset.cat === 'todos' ? total : (conteoCat[c.dataset.cat] || 0));
     });
+
+    /* cuántos modelos hay con cada opción, respetando los demás filtros */
+    FACETAS.forEach(function (f) {
+      (ui.opciones[f.id] || []).forEach(function (o) {
+        var n = 0;
+        productos.forEach(function (p) {
+          if (coincide(p, f.id) && coincideFacet(p, f, o.value)) n++;
+        });
+        o.textContent = o.getAttribute('data-label') + ' (' + n + ')';
+        o.disabled = n === 0 && sel[f.id] !== o.value;
+      });
+    });
+
+    var activos = FACETAS.filter(function (f) { return sel[f.id]; }).length + (consulta ? 1 : 0);
+    if (ui.contador) ui.contador.textContent = visibles === 1 ? '1 modelo' : visibles + ' modelos';
+    if (ui.limpiar) ui.limpiar.hidden = activos === 0;
+    if (ui.activos) { ui.activos.hidden = activos === 0; ui.activos.textContent = activos ? String(activos) : ''; }
     if (sinResultados) sinResultados.hidden = visibles !== 0;
   }
 
@@ -58,12 +203,11 @@
   chips.forEach(function (c) {
     c.addEventListener('click', function () { elegirCategoria(c.dataset.cat, true); });
   });
-  if (paraSel) paraSel.addEventListener('change', function () { para = paraSel.value; aplicar(); });
 
+  armarFiltros();
   var hash = location.hash.replace('#', '');
   if (hash && chips.some(function (c) { return c.dataset.cat === hash; })) cat = hash;
   aplicar();
-
 
   /* ----- Portada: pasa de un destacado a otro, con sus características en lista ----- */
   var stage = document.getElementById('cat-stage');
