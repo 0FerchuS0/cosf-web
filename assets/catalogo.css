@@ -192,3 +192,4 @@
 /* La marca va primero, bien visible */
 .pcard-brand { font: 700 0.76rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--plano); }
 .pcard h3 { margin-top: 0.1rem; }
+.cat-activos[hidden], .cat-limpiar[hidden] { display: none; }

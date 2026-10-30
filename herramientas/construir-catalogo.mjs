@@ -2,11 +2,14 @@
 // Genera /catalogo/index.html y las fotos optimizadas a partir de una planilla (CSV) y una carpeta de fotos.
 // Uso:  node herramientas/construir-catalogo.mjs [--datos "C:\COSF\fotos"] [--demo]
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// Versión por contenido: cuando cambia el CSS/JS el navegador baja el nuevo en vez de usar el guardado
+const versionDe = (rel) => crypto.createHash('md5').update(fs.readFileSync(path.join(REPO, rel))).digest('hex').slice(0, 8);
 const SITIO = 'https://centroopticosantafe.com';
 const WHATSAPP = '595973851449';
 const args = process.argv.slice(2);
@@ -292,7 +295,7 @@ ${items.map((p) => tarjeta(p, n++)).join('\n')}
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" /></noscript>
 
   <link rel="stylesheet" href="/styles.css" />
-  <link rel="stylesheet" href="/assets/catalogo.css" />
+  <link rel="stylesheet" href="/assets/catalogo.css?v=${versionDe('assets/catalogo.css')}" />
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -307,7 +310,7 @@ ${items.map((p) => tarjeta(p, n++)).join('\n')}
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1525850512886959&ev=PageView&noscript=1" alt="" /></noscript>
   <script src="/assets/icons.js" defer></script>
-  <script src="/assets/catalogo.js" defer></script>
+  <script src="/assets/catalogo.js?v=${versionDe('assets/catalogo.js')}" defer></script>
 </head>
 <body class="cat-page">
 ${demo ? '  <div class="cat-aviso">VISTA DE EJEMPLO: estos productos no son reales y esta página no se publica.</div>\n' : ''}  <header class="header" id="header">
