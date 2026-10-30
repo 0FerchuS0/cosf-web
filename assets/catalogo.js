@@ -65,11 +65,10 @@
     if (!filtrosEl) return;
     var det = document.createElement('details');
     det.className = 'cat-filtros-det';
-    var ancho = window.matchMedia ? matchMedia('(min-width: 760px)') : null;
-    det.open = !ancho || ancho.matches;
-    if (ancho && ancho.addEventListener) ancho.addEventListener('change', function (e) { if (e.matches) det.open = true; });
+    det.open = true;
     var sum = document.createElement('summary');
     sum.innerHTML = '<span>Filtrar y buscar</span><span class="cat-activos" hidden></span>';
+    sum.addEventListener('click', function (e) { e.preventDefault(); });
     det.appendChild(sum);
     var cuerpo = document.createElement('div');
     cuerpo.className = 'cat-filtros-cuerpo';
