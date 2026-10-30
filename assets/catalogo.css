@@ -119,7 +119,7 @@
 .pd-desc { color: #3f5373; line-height: 1.65; }
 .pd-info dl { display: grid; grid-template-columns: auto 1fr; gap: 0; font-size: 0.95rem; margin: 0.25rem 0 0.5rem; border-top: 1.5px solid var(--plano); }
 .pd-info dt, .pd-info dd { padding: 0.5rem 0; border-bottom: 1px dashed #9db3d3; }
-.pd-info dt { font: 600 0.78rem var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: #5a6b86; padding-right: 1.25rem; align-self: center; }
+.pd-info dt { font: 600 0.78rem var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: #5a6b86; padding-right: 1.25rem; display: flex; align-items: center; }
 .pd-info dd { color: var(--plano-oscuro); font-weight: 500; font-variant-numeric: tabular-nums; }
 .pd-actions { display: flex; flex-direction: column; gap: 0.6rem; margin-top: auto; padding-top: 0.5rem; }
 .pd-nota { font-size: 0.85rem; color: #4a5c78; }
