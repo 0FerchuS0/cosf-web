@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gestionar catálogo | Centro Óptico Santa Fe</title>
+<style>
+  :root { --plano: #15427f; --oscuro: #0f2e5e; --papel: #f4f7fc; --cota: #c0392b; --ok: #1e7a46; --linea: #b9c9e3; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 'Segoe UI', system-ui, sans-serif; color: var(--oscuro); background: var(--papel); padding-bottom: 6.5rem; }
+  header { background: var(--plano); color: #fff; padding: 1rem 1.25rem; }
+  header h1 { margin: 0; font-size: 1.3rem; }
+  header p { margin: 0.2rem 0 0; font-size: 0.9rem; opacity: 0.85; }
+  .barra { position: sticky; top: 0; z-index: 5; background: #fff; border-bottom: 2px solid var(--plano); padding: 0.75rem 1.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+  .tabs { display: flex; gap: 0.4rem; }
+  .tab { font: inherit; font-weight: 600; padding: 0.55rem 1rem; border: 1.5px solid var(--plano); background: #fff; color: var(--oscuro); border-radius: 3px; cursor: pointer; }
+  .tab[aria-pressed="true"] { background: var(--plano); color: #fff; }
+  .tab .n { margin-left: 0.4rem; opacity: 0.8; }
+  input[type=search] { flex: 1; min-width: 220px; font: inherit; padding: 0.6rem 0.8rem; border: 1.5px solid var(--plano); border-radius: 3px; background: #fff; }
+  main { padding: 1.25rem; max-width: 1400px; margin: 0 auto; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+  .card { background: #fff; border: 1.5px solid var(--linea); border-radius: 3px; display: flex; flex-direction: column; }
+  .card.off { opacity: 0.88; }
+  .foto { aspect-ratio: 4 / 3; background: #fff; display: grid; place-items: center; border-bottom: 1px solid var(--linea); overflow: hidden; color: #8a98b3; font-size: 0.85rem; text-align: center; padding: 0.5rem; }
+  .foto img { width: 100%; height: 100%; object-fit: contain; padding: 6%; }
+  .info { padding: 0.7rem 0.8rem; flex: 1; }
+  .marca { font: 700 0.75rem 'Consolas', monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--plano); }
+  .nombre { font-weight: 700; font-size: 1.05rem; line-height: 1.25; }
+  .meta { font-size: 0.85rem; color: #4a5c78; }
+  .etiqueta { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.05rem 0.45rem; border-radius: 2px; margin-top: 0.3rem; }
+  .e-agotado { background: #fff1d6; color: #7a4b00; }
+  .e-pend { background: #e2ecfb; color: var(--plano); }
+  .e-sinfoto { background: #fde4e1; color: var(--cota); }
+  .acc { padding: 0 0.8rem 0.8rem; }
+  .acc button { width: 100%; font: inherit; font-weight: 700; padding: 0.65rem; border-radius: 3px; cursor: pointer; border: 2px solid var(--cota); background: #fff; color: var(--cota); }
+  .acc button:hover { background: var(--cota); color: #fff; }
+  .acc button.volver { border-color: var(--plano); color: var(--plano); }
+  .acc button.volver:hover { background: var(--plano); color: #fff; }
+  .vacio { padding: 3rem 1rem; text-align: center; color: #4a5c78; }
+  .pie { position: fixed; left: 0; right: 0; bottom: 0; background: #fff; border-top: 2px solid var(--plano); padding: 0.8rem 1.25rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; z-index: 6; }
+  .pie .txt { flex: 1; min-width: 200px; }
+  .pie .txt b { font-size: 1.05rem; }
+  .pub { font: inherit; font-weight: 700; font-size: 1.05rem; padding: 0.8rem 1.6rem; border: 0; border-radius: 3px; background: var(--ok); color: #fff; cursor: pointer; }
+  .pub:disabled { background: #a9b6cc; cursor: default; }
+  .toast { position: fixed; left: 50%; bottom: 6rem; transform: translateX(-50%); background: var(--oscuro); color: #fff; padding: 0.7rem 1rem; border-radius: 3px; display: flex; gap: 1rem; align-items: center; z-index: 10; box-shadow: 0 4px 16px #0004; max-width: 92vw; }
+  .toast button { font: inherit; font-weight: 700; background: transparent; color: #ffd9d4; border: 0; text-decoration: underline; cursor: pointer; }
+  .toast.err { background: var(--cota); }
+  dialog { border: 2px solid var(--plano); border-radius: 3px; max-width: 640px; width: calc(100vw - 2rem); padding: 1.25rem; }
+  dialog pre { white-space: pre-wrap; background: var(--papel); padding: 0.7rem; max-height: 240px; overflow: auto; font-size: 0.8rem; }
+  dialog button { font: inherit; font-weight: 700; padding: 0.6rem 1.2rem; border: 1.5px solid var(--plano); background: #fff; border-radius: 3px; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Gestionar catálogo</h1>
+  <p>Centro Óptico Santa Fe · Esta pantalla solo existe en esta computadora, no está en internet.</p>
+</header>
+<div class="barra">
+  <div class="tabs" role="group" aria-label="Lista">
+    <button class="tab" id="t-vivos" aria-pressed="true">En el catálogo<span class="n" id="n-vivos">0</span></button>
+    <button class="tab" id="t-vend" aria-pressed="false">Vendidos<span class="n" id="n-vend">0</span></button>
+  </div>
+  <input type="search" id="q" placeholder="Buscar por marca, modelo o código…" autocomplete="off" />
+</div>
+<main>
+  <div class="grid" id="grid"></div>
+  <p class="vacio" id="vacio" hidden></p>
+</main>
+<div class="pie">
+  <div class="txt"><b id="pie-t">Todo al día</b><br><span id="pie-s" style="font-size:.88rem;color:#4a5c78"></span></div>
+  <button class="pub" id="pub" disabled>Publicar en la web</button>
+</div>
+<div id="aviso"></div>
+<dialog id="res"><h2 id="res-t" style="margin-top:0"></h2><p id="res-m"></p><pre id="res-d" hidden></pre><p style="text-align:right;margin-bottom:0"><button id="res-ok">Cerrar</button></p></dialog>
+
+<script>
+(function () {
+  var datos = { productos: [], pendientes: 0 };
+  var vista = 'vivos';
+  var grid = document.getElementById('grid');
+  var vacio = document.getElementById('vacio');
+  var q = document.getElementById('q');
+  var tVivos = document.getElementById('t-vivos'), tVend = document.getElementById('t-vend');
+  var avisoT = null;
+
+  function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function api(ruta, cuerpo) {
+    var op = cuerpo === undefined ? {} : { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Panel': '1' }, body: JSON.stringify(cuerpo) };
+    return fetch(ruta, op).then(function (r) { return r.json(); });
+  }
+  function aviso(texto, deshacer, esError) {
+    var el = document.getElementById('aviso');
+    el.textContent = '';
+    var t = document.createElement('div');
+    t.className = 'toast' + (esError ? ' err' : '');
+    var s = document.createElement('span'); s.textContent = texto; t.appendChild(s);
+    if (deshacer) { var b = document.createElement('button'); b.textContent = 'Deshacer'; b.onclick = function () { el.textContent = ''; deshacer(); }; t.appendChild(b); }
+    el.appendChild(t);
+    clearTimeout(avisoT);
+    avisoT = setTimeout(function () { el.textContent = ''; }, esError ? 9000 : 8000);
+  }
+  function cambiar(p, estado, mensaje) {
+    var antes = p.estado;
+    return api('/api/estado', { codigo: p.codigo, estado: estado }).then(function (r) {
+      if (!r.ok) { aviso(r.mensaje || 'No se pudo guardar.', null, true); return; }
+      datos = r; pintar();
+      aviso(mensaje, function () { cambiar(p, antes, 'Se deshizo el cambio.'); });
+    }).catch(function () { aviso('No se pudo hablar con el panel. ¿Se cerró la ventana negra?', null, true); });
+  }
+
+  function tarjeta(p) {
+    var c = document.createElement('article');
+    c.className = 'card' + (p.estado === 'oculto' ? ' off' : '');
+    var f = document.createElement('div'); f.className = 'foto';
+    if (p.conFoto || p.publicado) { var im = document.createElement('img'); im.loading = 'lazy'; im.alt = ''; im.src = '/foto/' + encodeURIComponent(p.id); im.onerror = function () { f.textContent = 'Sin foto'; }; f.appendChild(im); }
+    else f.textContent = 'Sin foto todavía';
+    var i = document.createElement('div'); i.className = 'info';
+    var h = '';
+    if (p.marca) h += '<div class="marca"></div>';
+    h += '<div class="nombre"></div><div class="meta"></div>';
+    i.innerHTML = h;
+    if (p.marca) i.querySelector('.marca').textContent = p.marca;
+    i.querySelector('.nombre').textContent = p.nombre;
+    i.querySelector('.meta').textContent = p.codigo + (p.color ? ' · ' + p.color : '');
+    function et(cls, t) { var e = document.createElement('span'); e.className = 'etiqueta ' + cls; e.textContent = t; i.appendChild(e); i.appendChild(document.createTextNode(' ')); }
+    if (p.estado === 'agotado') et('e-agotado', 'Agotado');
+    if (!p.conFoto && p.estado !== 'oculto') et('e-sinfoto', 'Sin foto: no se publica');
+    if (p.pendiente) et('e-pend', p.estado === 'oculto' ? 'Se quita al publicar' : 'Se agrega al publicar');
+    var a = document.createElement('div'); a.className = 'acc';
+    var b = document.createElement('button');
+    if (p.estado === 'oculto') { b.className = 'volver'; b.textContent = 'Volver a mostrar'; b.onclick = function () { cambiar(p, 'disponible', 'Vuelve a estar en el catálogo: ' + p.codigo); }; }
+    else { b.textContent = 'Vendido'; b.onclick = function () { cambiar(p, 'oculto', 'Marcado como vendido: ' + p.codigo); }; }
+    a.appendChild(b);
+    c.appendChild(f); c.appendChild(i); c.appendChild(a);
+    return c;
+  }
+
+  function pintar() {
+    var vivos = datos.productos.filter(function (p) { return p.estado !== 'oculto'; });
+    var vend = datos.productos.filter(function (p) { return p.estado === 'oculto'; });
+    document.getElementById('n-vivos').textContent = vivos.length;
+    document.getElementById('n-vend').textContent = vend.length;
+    tVivos.setAttribute('aria-pressed', String(vista === 'vivos'));
+    tVend.setAttribute('aria-pressed', String(vista === 'vend'));
+    var base = vista === 'vivos' ? vivos : vend;
+    var palabras = norm(q.value).split(/\s+/).filter(Boolean);
+    var ver = base.filter(function (p) {
+      var t = norm([p.codigo, p.nombre, p.marca, p.color, p.categoria].join(' '));
+      return palabras.every(function (w) { return t.indexOf(w) !== -1; });
+    });
+    grid.textContent = '';
+    ver.forEach(function (p) { grid.appendChild(tarjeta(p)); });
+    vacio.hidden = ver.length > 0;
+    vacio.textContent = base.length === 0 ? (vista === 'vivos' ? 'No hay modelos en el catálogo.' : 'Todavía no marcaste ningún modelo como vendido.') : 'No hay modelos que coincidan con la búsqueda.';
+    var n = datos.pendientes;
+    document.getElementById('pie-t').textContent = n === 0 ? 'Todo al día: la web muestra lo mismo que esta lista' : n + (n === 1 ? ' cambio sin publicar' : ' cambios sin publicar');
+    document.getElementById('pie-s').textContent = n === 0 ? '' : 'La web todavía no muestra estos cambios. Tocá "Publicar en la web".';
+    document.getElementById('pub').disabled = n === 0;
+  }
+
+  function resultado(titulo, msg, detalle) {
+    document.getElementById('res-t').textContent = titulo;
+    document.getElementById('res-m').textContent = msg;
+    var d = document.getElementById('res-d');
+    d.hidden = !detalle; d.textContent = detalle || '';
+    var dlg = document.getElementById('res');
+    if (!dlg.open) dlg.showModal();
+  }
+  document.getElementById('res-ok').onclick = function () { document.getElementById('res').close(); };
+
+  document.getElementById('pub').onclick = function () {
+    var b = this;
+    b.disabled = true; b.textContent = 'Publicando… (puede tardar un minuto)';
+    api('/api/publicar', {}).then(function (r) {
+      b.textContent = 'Publicar en la web';
+      if (r.ok) resultado(r.publicado ? '¡Publicado!' : 'Listo', r.mensaje, null);
+      else resultado('No se pudo publicar', r.mensaje + ' Avisale a Claude y mostrale este detalle.', r.detalle);
+      return api('/api/lista');
+    }).then(function (l) { datos = l; pintar(); }).catch(function () { b.textContent = 'Publicar en la web'; aviso('Se perdió la conexión con el panel.', null, true); pintar(); });
+  };
+  tVivos.onclick = function () { vista = 'vivos'; pintar(); };
+  tVend.onclick = function () { vista = 'vend'; pintar(); };
+  q.addEventListener('input', pintar);
+
+  api('/api/lista').then(function (l) { datos = l; pintar(); }).catch(function () { aviso('No se pudo cargar la lista.', null, true); });
+})();
+</script>
+</body>
+</html>

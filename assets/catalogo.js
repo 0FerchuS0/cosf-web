@@ -280,9 +280,13 @@
     estado: document.getElementById('pd-estado'),
     prev: document.getElementById('pd-prev'),
     next: document.getElementById('pd-next'),
-    cerrar: document.getElementById('pd-cerrar')
+    cerrar: document.getElementById('pd-cerrar'),
+    copiar: document.getElementById('pd-copiar')
   };
   var actual = null;
+  var abiertoEn = 0;
+  /* un segundo clic o toque justo al abrir la ficha no debe activar los botones que quedan debajo */
+  function recienAbierto() { return Date.now() - abiertoEn < 450; }
 
   function evento(nombre, id) {
     if (typeof gtag === 'function') gtag('event', nombre, { event_category: 'catalogo', producto: id });
@@ -336,8 +340,9 @@
       el.thumbs.appendChild(b);
     });
     mostrarFoto(p, 0);
-    if (!dlg.open) dlg.showModal();
+    if (!dlg.open) { dlg.showModal(); abiertoEn = Date.now(); }
     dlg.scrollTop = 0;
+    if (window.history && history.replaceState) history.replaceState(null, '', '#' + id);
     evento('catalogo_ver_producto', id);
   }
 
@@ -362,8 +367,26 @@
     }
   });
 
-  el.prev.addEventListener('click', function () { mover(-1); });
-  el.next.addEventListener('click', function () { mover(1); });
+  /* Enlace directo a un modelo: /catalogo/#codigo abre su ficha */
+  function enlaceDe(id) { return location.origin + location.pathname + '#' + id; }
+  if (el.copiar) el.copiar.addEventListener('click', function () {
+    if (recienAbierto()) return;
+    var p = porId[actual];
+    var u = enlaceDe(actual);
+    evento('compartir_producto', actual);
+    if (navigator.share) { navigator.share({ title: (p ? p.nombre : 'Catálogo') + ' | Centro Óptico Santa Fe', url: u }).catch(function () {}); return; }
+    var ok = function () { var t = el.copiar.innerHTML; el.copiar.textContent = '¡Enlace copiado!'; setTimeout(function () { el.copiar.innerHTML = t; }, 2200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function () { window.prompt('Copiá este enlace:', u); });
+    else window.prompt('Copiá este enlace:', u);
+  });
+  dlg.addEventListener('close', function () {
+    if (window.history && history.replaceState && porId[location.hash.replace('#', '')]) history.replaceState(null, '', location.pathname + location.search);
+  });
+  var inicial = location.hash.replace('#', '');
+  if (porId[inicial]) abrir(inicial);
+
+  el.prev.addEventListener('click', function () { if (!recienAbierto()) mover(-1); });
+  el.next.addEventListener('click', function () { if (!recienAbierto()) mover(1); });
   el.cerrar.addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('keydown', function (e) {

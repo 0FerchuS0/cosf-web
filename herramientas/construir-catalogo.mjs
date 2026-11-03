@@ -6,6 +6,7 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { leerPlanilla } from './planilla.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // Versión por contenido: cuando cambia el CSS/JS el navegador baja el nuevo en vez de usar el guardado
@@ -36,30 +37,7 @@ const clave = (s) => sinAcentos(s).toLowerCase().trim();
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const avisos = [];
 const errores = [];
-
-// ---------- CSV ----------
-function parseCSV(texto) {
-  texto = texto.replace(/^\uFEFF/, '');
-  const primera = texto.split(/\r?\n/)[0] || '';
-  const sep = (primera.match(/;/g) || []).length > (primera.match(/,/g) || []).length ? ';' : ',';
-  const filas = [];
-  let fila = [], campo = '', comillas = false;
-  for (let i = 0; i < texto.length; i++) {
-    const c = texto[i];
-    if (comillas) {
-      if (c === '"' && texto[i + 1] === '"') { campo += '"'; i++; }
-      else if (c === '"') comillas = false;
-      else campo += c;
-    } else if (c === '"') comillas = true;
-    else if (c === sep) { fila.push(campo); campo = ''; }
-    else if (c === '\n') { fila.push(campo); filas.push(fila); fila = []; campo = ''; }
-    else if (c !== '\r') campo += c;
-  }
-  if (campo !== '' || fila.length) { fila.push(campo); filas.push(fila); }
-  const [cab, ...resto] = filas.filter((f) => f.some((v) => v.trim() !== ''));
-  const nombres = cab.map((h) => clave(h).replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, ''));
-  return resto.map((f) => Object.fromEntries(nombres.map((n, i) => [n, (f[i] ?? '').trim()])));
-}
+const sinFoto = [];
 
 // ---------- Productos ----------
 function demoProductos() {
@@ -88,9 +66,16 @@ function crearPlantilla() {
   console.log('Cuando tengas productos, volvé a ejecutar esta herramienta.');
 }
 
+// Unifica variantes de escritura de la forma (Geometrico / GEOMETRICO / Geométrica -> Geométrico) para que los filtros no se repitan
+const FORMAS = { geometrico: 'Geométrico', geometrica: 'Geométrico', cuadrada: 'Cuadrado', redonda: 'Redondo' };
+const formaDe = (f) => FORMAS[String(f || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim()] || String(f || '').trim();
+
+const claveFoto = (t) => String(t || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
 function indexarFotos() {
   const porNombre = new Map();
   const porBase = new Map();
+  const porCodigo = new Map();
   (function recorrer(dir) {
     for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
       const p = path.join(dir, e.name);
@@ -100,10 +85,32 @@ function indexarFotos() {
         porNombre.set(n, p);
         const b = path.basename(n, path.extname(n));
         if (!porBase.has(b)) porBase.set(b, p);
+        const m = b.match(/^(.*?)[-_ ]*(frente|costado)$/);
+        if (m && !porCodigo.has(claveFoto(m[1]) + '|' + m[2])) porCodigo.set(claveFoto(m[1]) + '|' + m[2], p);
       }
     }
   })(DATOS);
-  return { porNombre, porBase };
+  return { porNombre, porBase, porCodigo };
+}
+
+// Busca "CODIGO-frente" / "CODIGO-costado" aunque el código lleve el color (-C4) y la foto no, o al revés
+function fotoPorCodigo(idxFotos, codigo, lado) {
+  const cod = String(codigo || '');
+  const candidatos = [cod, cod.replace(/-C\d+$/i, ''), cod.replace(/^GAN-/i, 'GANT-'), cod.replace(/-C\d+$/i, '').replace(/^GAN-/i, 'GANT-')];
+  for (const c of candidatos) {
+    const hallada = idxFotos.porCodigo.get(claveFoto(c) + '|' + lado);
+    if (hallada) return hallada;
+  }
+  // Último recurso: recortar de a un tramo final del código (EMP-1107401-FWP -> EMP-1107401)
+  const tramos = cod.replace(/\s+/g, '').split('-').filter(Boolean);
+  for (let n = tramos.length - 1; n >= 2; n--) {
+    const base = tramos.slice(0, n).join('-');
+    for (const c of [base, base.replace(/^GAN-/i, 'GANT-')]) {
+      const hallada = idxFotos.porCodigo.get(claveFoto(c) + '|' + lado);
+      if (hallada) return hallada;
+    }
+  }
+  return null;
 }
 
 function buscarFoto(idxFotos, valor, alternativas) {
@@ -379,17 +386,17 @@ ${total > 0 ? `    <div class="cat-tools">
         <div class="pd-thumbs" id="pd-thumbs" hidden></div>
       </div>
       <div class="pd-info">
-        <span class="pd-brand" id="pd-marca"></span>
+        <div class="pd-top"><span class="pd-brand" id="pd-marca"></span><button type="button" class="pd-compartir" id="pd-copiar">Copiar enlace</button></div>
         <h2 id="pd-titulo"></h2>
         <p class="pd-desc" id="pd-desc"></p>
         <dl id="pd-ficha"></dl>
         <p class="pd-nota" id="pd-estado" hidden>Este modelo figura como agotado. Consultanos si volverá a estar disponible.</p>
         <div class="pd-actions">
           <a class="btn btn-whatsapp" id="pd-wa" href="#" target="_blank" rel="noopener" data-wa="dialogo"><i class="fab fa-whatsapp" aria-hidden="true"></i> Consultar por WhatsApp</a>
-          <div class="pd-nav"><button type="button" id="pd-prev">← Anterior</button><button type="button" id="pd-next">Siguiente →</button></div>
         </div>
       </div>
     </div>
+    <div class="pd-footer"><div class="pd-nav"><button type="button" id="pd-prev">← Anterior</button><button type="button" id="pd-next">Siguiente →</button></div></div>
   </dialog>
 
   <script type="application/json" id="catalogo-datos">${seguro(datos)}</script>
@@ -450,7 +457,7 @@ function main() {
   if (demo) filas = demoProductos();
   else {
     if (!fs.existsSync(path.join(DATOS, 'productos.csv'))) { crearPlantilla(); return; }
-    filas = parseCSV(fs.readFileSync(path.join(DATOS, 'productos.csv'), 'utf8'));
+    filas = leerPlanilla(fs.readFileSync(path.join(DATOS, 'productos.csv'), 'utf8'));
     fotos = indexarFotos();
   }
 
@@ -474,14 +481,14 @@ function main() {
     const cat = categoriaDe(r.categoria);
     if (!cat) { errores.push(`Fila ${linea} (${r.codigo}): categoría "${r.categoria}" no reconocida. Usá Armazones, Lentes de sol, Lentes de contacto o Accesorios.`); return; }
 
-    const srcFrente = demo ? r._frente : buscarFoto(fotos, r.foto_frente, [id + '-frente', id]);
-    if (!srcFrente || !fs.existsSync(srcFrente)) { errores.push(`Fila ${linea} (${r.codigo}): no se encontró la foto de frente${r.foto_frente ? ' "' + r.foto_frente + '"' : ''}.`); return; }
-    const srcCostado = demo ? r._costado : buscarFoto(fotos, r.foto_costado, [id + '-costado', id + '-lado']);
+    const srcFrente = demo ? r._frente : (buscarFoto(fotos, r.foto_frente, [id + '-frente', id]) || (!r.foto_frente && fotoPorCodigo(fotos, r.codigo, 'frente')));
+    if (!srcFrente || !fs.existsSync(srcFrente)) { sinFoto.push(r.codigo); avisos.push(`${r.codigo}: todavía no tiene foto de frente${r.foto_frente ? ' ("' + r.foto_frente + '")' : ''}; no se publica hasta que la cargues.`); return; }
+    const srcCostado = demo ? r._costado : (buscarFoto(fotos, r.foto_costado, [id + '-costado', id + '-lado']) || (!r.foto_costado && fotoPorCodigo(fotos, r.codigo, 'costado')));
     if (!demo && r.foto_costado && !srcCostado) avisos.push(`${r.codigo}: no se encontró la foto de costado "${r.foto_costado}"; se publica solo con la de frente.`);
     if (!srcCostado && ['armazones', 'lentes-de-sol'].includes(cat.slug)) avisos.push(`${r.codigo}: el ${cat.nombre.toLowerCase()} tiene una sola foto (se recomiendan frente y costado).`);
 
     const p = {
-      id, codigo: r.codigo, cat, nombre: r.nombre_modelo, marca: r.marca, para: paraDe(r.para), forma: r.forma, material: r.material, estilo: r.estilo, color: r.color, medidas: r.medidas, desc: r.descripcion_corta,
+      id, codigo: r.codigo, cat, nombre: r.nombre_modelo, marca: r.marca, para: paraDe(r.para), forma: formaDe(r.forma), material: r.material, estilo: r.estilo, color: r.color, medidas: r.medidas, desc: r.descripcion_corta,
       estado, destacado: esSi(r.destacado), fotos: [],
     };
     p.fotos.push(procesarFoto(srcFrente, id + '-frente', usadas));
