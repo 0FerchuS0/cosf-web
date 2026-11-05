@@ -44,9 +44,19 @@ export function leerPlanilla(texto) {
     if (f.length === 1 && f[0].includes(sep)) f = partir(f[0], sep)[0] || f;
     if (colaEsperada) {
       const n = f.length;
-      const tieneCola = n >= di + 5 && ESTADOS.includes(String(f[n - 1]).trim().toLowerCase()) && ['si', 'sí', 'no'].includes(String(f[n - 2]).trim().toLowerCase());
-      const desc = (tieneCola ? f.slice(di, n - 4) : f.slice(di)).join(',');
+      const v = (k) => String(f[k] ?? '').trim().toLowerCase();
+      const esFoto = (k) => v(k) === '' || /\.[a-z0-9]{3,4}$/.test(v(k));
+      // La cola (fotos, destacado, estado) puede venir vacía o con el estado; se reconoce por su forma
+      const tieneCola = n >= di + 5 && (ESTADOS.includes(v(n - 1)) || v(n - 1) === '') && ['si', 'sí', 'no', ''].includes(v(n - 2)) && esFoto(n - 3) && esFoto(n - 4);
+      let desc = (tieneCola ? f.slice(di, n - 4) : f.slice(di)).join(',');
       const cola = tieneCola ? f.slice(n - 4) : ['', '', '', ''];
+      // Repara descripciones ensuciadas por guardados anteriores (comas y estados pegados al final)
+      const m = desc.match(/(?:,\s*(?:oculto|agotado|disponible)?)+$/i);
+      if (m && m[0].replace(/[,\s]/g, '') !== '' || (m && /,,/.test(m[0]))) {
+        const pegado = (m[0].match(/oculto|agotado|disponible/gi) || []).pop();
+        desc = desc.slice(0, desc.length - m[0].length).trim();
+        if (pegado && !String(cola[3]).trim()) cola[3] = pegado.toLowerCase();
+      }
       f = [...f.slice(0, di), desc, ...cola];
     }
     return Object.fromEntries(nombres.map((nombre, i) => [nombre, String(f[i] ?? '').trim()]));
